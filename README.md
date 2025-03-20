@@ -4,7 +4,7 @@
 
 ## About Me
 
-I am a passionate developer with a focus on AI, deep learning, image processing, automation, and quality assurance. My goal is to develop innovative solutions that bridge the gap between cutting-edge research and practical applications.
+I am a passionate developer with expertise in AI, deep learning, image processing, automation, and quality assurance. I strive to develop innovative solutions that bridge the gap between cutting-edge research and practical applications.
 
 - 🔭 I’m currently working on: Enhancing OCR capabilities in real-time applications.
 - 🌱 I’m currently learning: Advanced natural language processing techniques.
@@ -64,9 +64,15 @@ Developed a Flask-based OCR application to extract text from images, enhancing d
 
 Created an application to compare different OCR models, assisting users in selecting the most suitable model for their needs.
 
+## Connect with Me
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anil-sherikar/)
+[![Twitter](https://img.shields.io/badge/-Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](https://x.com/anil_sherikar09)
+
+[![Personal Website](https://img.shields.io/badge/-Website-000000?style=flat&logo=github&logoColor=white)](https://anilsherikar.dev/)
+
 ## GitHub Stats
 
 ![Anil's GitHub Stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=radical)
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=radical)
-
