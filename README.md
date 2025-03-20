@@ -1,49 +1,72 @@
-# Hi there, I'm [Your Name] 👋
+# Hi there, I'm Anil Sherikar 👋
 
 ![Profile Banner](https://your-image-url.com/banner.png)
 
 ## About Me
 
-I am a passionate AI specialist with a focus on deep learning, image processing, automation, and quality assurance. My goal is to develop innovative solutions that bridge the gap between cutting-edge research and practical applications.
+I am a passionate developer with a focus on AI, deep learning, image processing, automation, and quality assurance. My goal is to develop innovative solutions that bridge the gap between cutting-edge research and practical applications.
 
-- 🔭 I’m currently working on: [Project Name](https://github.com/your-username/project-name)
-- 🌱 I’m currently learning: Reinforcement Learning, Advanced Computer Vision Techniques
-- 👯 I’m looking to collaborate on: Open-source AI projects
-- 💬 Ask me about: AI model optimization, test automation strategies
-- 📫 How to reach me: [your.email@example.com](mailto:your.email@example.com)
-- ⚡ Fun fact: I love hiking and nature photography.
+- 🔭 I’m currently working on: Enhancing OCR capabilities in real-time applications.
+- 🌱 I’m currently learning: Advanced natural language processing techniques.
+- 👯 I’m looking to collaborate on: Open-source AI and automation projects.
+- 💬 Ask me about: AI model optimization, image processing techniques, and automation strategies.
+- 📫 How to reach me: [anilsherikar207@gmail.com](mailto:anilsherikar207@gmail.com)
+- ⚡ Fun fact: I enjoy exploring new technologies and applying them to solve real-world problems.
 
 ## Skills
 
-**Languages**: ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) ![C++](https://img.shields.io/badge/-C++-00599C?style=flat&logo=c%2B%2B&logoColor=white)
+**Languages**:
+![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-**Frameworks and Libraries**: ![TensorFlow](https://img.shields.io/badge/-TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white) ![PyTorch](https://img.shields.io/badge/-PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white) ![OpenCV](https://img.shields.io/badge/-OpenCV-5C3EE8?style=flat&logo=opencv&logoColor=white)
+**Frameworks and Libraries**:
+![OpenCV](https://img.shields.io/badge/-OpenCV-5C3EE8?style=flat&logo=opencv&logoColor=white)
+![Flask](https://img.shields.io/badge/-Flask-000000?style=flat&logo=flask&logoColor=white)
+![Tkinter](https://img.shields.io/badge/-Tkinter-FF6F00?style=flat&logo=tkinter&logoColor=white)
+![Gradio](https://img.shields.io/badge/-Gradio-FF6F00?style=flat&logo=gradio&logoColor=white)
 
-**Tools**: ![Selenium](https://img.shields.io/badge/-Selenium-43B02A?style=flat&logo=selenium&logoColor=white) ![Jenkins](https://img.shields.io/badge/-Jenkins-D24939?style=flat&logo=jenkins&logoColor=white) ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat&logo=docker&logoColor=white)
+**Tools**:
+![Selenium](https://img.shields.io/badge/-Selenium-43B02A?style=flat&logo=selenium&logoColor=white)
+![Jenkins](https://img.shields.io/badge/-Jenkins-D24939?style=flat&logo=jenkins&logoColor=white)
+![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat&logo=docker&logoColor=white)
 
 ## Notable Projects
 
-### [Automated Defect Detection System](https://github.com/your-username/automated-defect-detection)
+### [SMS Spam Detection](https://github.com/anilss147/sms-spam)
 
-Developed a deep learning model using convolutional neural networks (CNNs) to identify defects in manufacturing processes, resulting in a 25% reduction in quality inspection time.
+Developed a machine learning model to classify SMS messages as spam or ham, enhancing communication security.
 
-### [Continuous Integration Pipeline for ML Models](https://github.com/your-username/ci-pipeline-ml-models)
+### [Knowledge Tracing with SAINT](https://github.com/anilss147/Knowledge-Tracing-SAINT)
 
-Implemented a Jenkins-based CI/CD pipeline to automate testing and deployment of machine learning models, enhancing the efficiency of the development workflow.
+Implemented the SAINT model for knowledge tracing, predicting student performance based on interaction data.
 
-## Certifications and Achievements
+### [Resizing Images with OpenCV](https://github.com/anilss147/Resizeing-Image-with-OpenCV)
 
-- ![TensorFlow Developer Certificate](https://img.shields.io/badge/-TensorFlow%20Developer%20Certificate-FF6F00?style=flat&logo=tensorflow&logoColor=white)
-- Recipient of the 'Best AI Project' award at the 2024 Tech Innovators Conference
+Created a tool to resize images using OpenCV, facilitating efficient image processing workflows.
+
+### [Tkinter Document Viewer](https://github.com/anilss147/Tkinter-View-Document-)
+
+Developed a document viewer application using Tkinter, providing users with a simple interface to view documents.
+
+### [Image Transformations](https://github.com/anilss147/Image-transformations)
+
+Explored various image transformation techniques using Python, aiding in image analysis and augmentation tasks.
+
+### [User Management Gradio App](https://github.com/anilss147/user-management-gradio-app)
+
+Built a user management application with Gradio, simplifying user interactions and management processes.
+
+### [Flask OCR App](https://github.com/anilss147/flask-ocr-app)
+
+Developed a Flask-based OCR application to extract text from images, enhancing data extraction capabilities.
+
+### [OCR Model Selection App](https://github.com/anilss147/OCR-Model-Selection-App)
+
+Created an application to compare different OCR models, assisting users in selecting the most suitable model for their needs.
 
 ## GitHub Stats
 
-![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=your-username&show_icons=true&theme=radical)
+![Anil's GitHub Stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=radical)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=your-username&layout=compact&theme=radical)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=radical)
 
-## Contact Me
-
-- [LinkedIn](https://www.linkedin.com/in/your-profile)
-- [Personal Website](https://www.yourwebsite.com)
-- [Email](mailto:your.email@example.com)
