@@ -1,6 +1,7 @@
 # Hi there, I'm Anil Sherikar 👋
 
-![Profile Banner](https://your-image-url.com/banner.png)
+![Profile Banner](https://raw.githubusercontent.com/anilss147/anilss147/main/github-header-image.png)
+
 
 ## About Me
 
