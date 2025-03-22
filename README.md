@@ -1,63 +1,8 @@
-![Profile Banner](https://raw.githubusercontent.com/anilss147/anilss147/main/github-header-image.png)
-
-# 👋 Hi, I'm Anil Sherikar!
-
-🚀 Passionate Developer | AI Enthusiast | Automation Expert
-
-I specialize in **AI, deep learning, image processing, automation, and quality assurance**. My goal is to bridge the gap between cutting-edge research and real-world applications.
-
-## 🚀 About Me
-
-- 🔭 **Currently working on:** Enhancing OCR capabilities in real-time applications.
-- 🌱 **Currently learning:** Advanced natural language processing techniques.
-- 👯 **Looking to collaborate on:** Open-source AI and automation projects.
-- 💬 **Ask me about:** AI model optimization, image processing, and automation strategies.
-- 📫 **How to reach me:** [📧 anilsherikar207@gmail.com](mailto:anilsherikar207@gmail.com)
-- ⚡ **Fun fact:** I love experimenting with AI to solve real-world problems.
-
----
-
-## 🔥 GitHub Stats & Achievements
-
-[![trophy](https://github-profile-trophy.vercel.app/?username=anilss147&theme=radical)](https://github.com/ryo-ma/github-profile-trophy)
-
-![Anil's GitHub Stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=radical)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=radical)
-
-![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=anilss147&theme=radical)
-
----
-
-## 🚀 Featured Projects  
-
 <!-- PROJECTS START -->
+
+- [anilss147](https://github.com/anilss147/anilss147) - My Personal Repository 
+- [AI-Assistant-Call-Bot](https://github.com/anilss147/AI-Assistant-Call-Bot) - AI Assistant Call Bot is an open-source AI voice assistant for real-time calls. It features Speech-to-Text (Whisper), AI responses (Mistral 7B), Voice Cloning (Coqui-TTS), Fraud Detection, Smart Call Routing, and IoT Integration. Deploy via Docker, Kubernetes, Hugging Face.
+- [multi-model-ai-chatbot](https://github.com/anilss147/multi-model-ai-chatbot) - A Gradio-based chatbot to interact with AI models like LLaMA-3, Mistral-7B, and Falcon-7B. Features include dynamic model switching, customizable response lengths, token limit management, and chat history clearing. Run on Google Colab or locally with GPU support. Fully open-source and requires no API key.
+- [landmark-explorer](https://github.com/anilss147/landmark-explorer) - Landmark Explorer is a full-stack web app to explore landmarks on an interactive map. Built with React, Leaflet, and Node.js, it integrates Wikipedia and OpenStreetMap APIs for real-time data, geocoding, and caching. Features include search, filtering, and responsive design
+- [OCR-Model-Selection-App](https://github.com/anilss147/OCR-Model-Selection-App) - A Flask-based OCR (Optical Character Recognition) application that allows users to upload images and extract text using various OCR models. The application supports both traditional OCR models (EasyOCR, Tesseract) and deep learning-based models (CRNN, TrOCR). Future models like YOLO and BART are listed for potential integration.
 <!-- PROJECTS END -->
-
-*(This section updates automatically via GitHub Actions!)*  
-
----
-
-## 🛠️ Tech Stack
-
-### 🚀 Languages & Tools:
-<p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40px"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40px"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40px"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="40px"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" width="40px"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40px"/>
-</p>
-
----
-
-## 🔗 Connect with Me
-
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anil-sherikar/)
-[![Twitter](https://img.shields.io/badge/-Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](https://x.com/anil_sherikar09)
-[![Personal Website](https://img.shields.io/badge/-Website-000000?style=flat&logo=github&logoColor=white)](https://anilsherikar.dev/)
-
----
-
-**🚀 Let's build something amazing together!** 💡
