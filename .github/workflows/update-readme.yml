@@ -15,10 +15,18 @@ jobs:
           fetch-depth: 0  # Fetch full history to avoid conflicts
 
       - name: Fetch All GitHub Repositories
-        run: |
-          echo "<!-- PROJECTS START -->" > projects.md
-          curl -s "https://api.github.com/users/anilss147/repos?per_page=100" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description available.")"' >> projects.md
-          echo "<!-- PROJECTS END -->" >> projects.md
+          run: |
+            echo "<!-- PROJECTS START -->" > projects.md
+            RESPONSE=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100")
+            
+            if echo "$RESPONSE" | jq empty 2>/dev/null; then
+              echo "$RESPONSE" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description available.")"' >> projects.md
+            else
+              echo "⚠️ GitHub API returned an unexpected response!" >> projects.md
+            
+
+    echo "<!-- PROJECTS END -->" >> projects.md
+
 
       - name: Update README.md (Preserve Other Content)
         run: |
