@@ -34,7 +34,7 @@ I specialize in **AI, deep learning, image processing, automation, and quality a
 <!-- PROJECTS START -->
 <!-- PROJECTS END -->
 
-*(This section updates automatically via GitHub Actions!)*
+*(This section updates automatically via GitHub Actions!)*  
 
 ---
 
