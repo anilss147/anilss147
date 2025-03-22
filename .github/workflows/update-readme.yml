@@ -2,7 +2,7 @@ name: Auto Update README
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Runs every day at midnight UTC
+    - cron: "0 0 * * *"  # Runs daily at midnight UTC
   workflow_dispatch:  # Allows manual execution
 
 jobs:
@@ -19,10 +19,11 @@ jobs:
           jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description available.")"' \
           > repo-list.md
 
-          # Fetch stats (stars, forks, issues)
+          # Fetch GitHub stats (stars, forks, issues)
           curl -s "https://api.github.com/users/anilss147" | jq -r '
+            "**GitHub Stats:**\n" +
             "⭐ Stars: " + (.public_repos|tostring) + "\n" +
-            "🔄 Forks: " + (.followers|tostring) + "\n" +
+            "🔄 Followers: " + (.followers|tostring) + "\n" +
             "🚀 Contributions: " + (.public_gists|tostring)
           ' > github-stats.md
 
