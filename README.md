@@ -1,8 +1,23 @@
-<!-- PROJECTS START -->
+![Profile Banner](https://raw.githubusercontent.com/anilss147/anilss147/main/github-header-image.png)
 
-- [anilss147](https://github.com/anilss147/anilss147) - My Personal Repository 
-- [AI-Assistant-Call-Bot](https://github.com/anilss147/AI-Assistant-Call-Bot) - AI Assistant Call Bot is an open-source AI voice assistant for real-time calls. It features Speech-to-Text (Whisper), AI responses (Mistral 7B), Voice Cloning (Coqui-TTS), Fraud Detection, Smart Call Routing, and IoT Integration. Deploy via Docker, Kubernetes, Hugging Face.
-- [multi-model-ai-chatbot](https://github.com/anilss147/multi-model-ai-chatbot) - A Gradio-based chatbot to interact with AI models like LLaMA-3, Mistral-7B, and Falcon-7B. Features include dynamic model switching, customizable response lengths, token limit management, and chat history clearing. Run on Google Colab or locally with GPU support. Fully open-source and requires no API key.
-- [landmark-explorer](https://github.com/anilss147/landmark-explorer) - Landmark Explorer is a full-stack web app to explore landmarks on an interactive map. Built with React, Leaflet, and Node.js, it integrates Wikipedia and OpenStreetMap APIs for real-time data, geocoding, and caching. Features include search, filtering, and responsive design
-- [OCR-Model-Selection-App](https://github.com/anilss147/OCR-Model-Selection-App) - A Flask-based OCR (Optical Character Recognition) application that allows users to upload images and extract text using various OCR models. The application supports both traditional OCR models (EasyOCR, Tesseract) and deep learning-based models (CRNN, TrOCR). Future models like YOLO and BART are listed for potential integration.
+# 👋 Hi, I'm Anil Sherikar!
+
+🚀 Passionate Developer | AI Enthusiast | Automation Expert
+
+---
+
+## 🔥 GitHub Stats  
+
+<!-- STATS START -->
+<!-- STATS END -->
+
+---
+
+## 🚀 Featured Projects  
+
+<!-- PROJECTS START -->
 <!-- PROJECTS END -->
+
+*(This section updates automatically via GitHub Actions!)*  
+
+---
