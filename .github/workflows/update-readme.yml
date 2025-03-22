@@ -3,7 +3,7 @@ name: Update README with Latest GitHub Repos
 on:
   schedule:
     - cron: "0 * * * *"  # Runs every hour
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch: # Allows manual trigger
 
 jobs:
   update-readme:
@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensure full history is fetched
 
       - name: Fetch Latest Repositories
         run: |
@@ -18,7 +20,7 @@ jobs:
           curl -s "https://api.github.com/users/anilss147/repos?sort=updated&per_page=10" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description")"' >> projects.md
           echo "<!-- PROJECTS END -->" >> projects.md
 
-      - name: Update README.md
+      - name: Update README.md (Preserve Other Content)
         run: |
           awk '/<!-- PROJECTS START -->/{print;while(getline<"projects.md")print;next}1' README.md > temp.md && mv temp.md README.md
 
@@ -26,7 +28,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase
+          
+          git pull --rebase --autostash origin main  # Pull latest changes
+          
           git add README.md
-          git commit -m "Auto-update README with latest GitHub data" || exit 0
-          git push
+          git diff --staged --quiet || git commit -m "Auto-update README with latest GitHub data"
+          git push origin main  # Push changes
