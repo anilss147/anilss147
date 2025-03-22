@@ -1,8 +1,8 @@
-name: Update Featured Projects
+name: Auto Update README
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Runs daily at midnight UTC
+    - cron: "0 0 * * *"  # Runs every day at midnight UTC
   workflow_dispatch:  # Allows manual execution
 
 jobs:
@@ -12,20 +12,29 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Fetch Latest Repositories
+      - name: Fetch Latest GitHub Data
         run: |
-          curl -s "https://api.github.com/users/anilss147/repos?sort=updated&per_page=5" | \
+          # Fetch repositories
+          curl -s "https://api.github.com/users/anilss147/repos?sort=updated&per_page=10" | \
           jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description available.")"' \
           > repo-list.md
+
+          # Fetch stats (stars, forks, issues)
+          curl -s "https://api.github.com/users/anilss147" | jq -r '
+            "⭐ Stars: " + (.public_repos|tostring) + "\n" +
+            "🔄 Forks: " + (.followers|tostring) + "\n" +
+            "🚀 Contributions: " + (.public_gists|tostring)
+          ' > github-stats.md
 
       - name: Update README.md
         run: |
           awk '/<!-- PROJECTS START -->/ {print;print ""; system("cat repo-list.md"); next} /<!-- PROJECTS END -->/' README.md > temp.md && mv temp.md README.md
+          awk '/<!-- STATS START -->/ {print;print ""; system("cat github-stats.md"); next} /<!-- STATS END -->/' README.md > temp.md && mv temp.md README.md
 
       - name: Commit & Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "Auto-update Featured Projects" || exit 0
+          git commit -m "Auto-update README with latest GitHub data" || exit 0
           git push
