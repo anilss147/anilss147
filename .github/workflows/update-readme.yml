@@ -1,0 +1,35 @@
+name: Update Featured Projects
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Runs daily at midnight (UTC)
+  workflow_dispatch:  # Allows manual execution
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Fetch Latest Repositories
+        run: |
+          curl -s "https://api.github.com/users/anilss147/repos?sort=updated" | \
+          jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description available.")"' \
+          > repo-list.md
+
+      - name: Update README.md
+        run: |
+          sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\
+          <!-- PROJECTS START -->\n\
+          '"$(cat repo-list.md)"'\n\
+          <!-- PROJECTS END -->' README.md
+
+      - name: Commit & Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Auto-update Featured Projects"
+          git push
+
