@@ -24,14 +24,17 @@ jobs:
         run: |
           awk '/<!-- PROJECTS START -->/{print;while(getline<"projects.md")print;next}1' README.md > temp.md && mv temp.md README.md
 
-      - name: Commit & Push Changes
+      - name: Configure Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git pull --rebase --autostash origin main  # Pull latest changes before pushing
-          
+      - name: Pull Latest Changes Before Commit
+        run: |
+          git pull --rebase --autostash origin main || echo "No updates needed"
+
+      - name: Commit & Push Changes
+        run: |
           git add README.md
           git diff --staged --quiet || git commit -m "Auto-update README with latest GitHub data"
-          
-          git push origin main || (echo "⚠️ Push failed! Retrying..." && git pull --rebase --autostash origin main && git push origin main)
+          git push origin main || (git pull --rebase --autostash origin main && git push origin main)
