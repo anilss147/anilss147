@@ -1,43 +1,76 @@
 ![Profile Banner](https://raw.githubusercontent.com/anilss147/anilss147/main/github-header-image.png)
 
-# 👋 Hi, I'm Anil Sherikar!
+# 👋 Hi, I'm Anil Sherikar!  
 
 🚀 Passionate Developer | AI Enthusiast | Automation Expert  
 
 I specialize in **AI, deep learning, image processing, automation, and quality assurance**.  
-My goal is to bridge the gap between cutting-edge research and real-world applications.
+My goal is to bridge the gap between cutting-edge research and real-world applications.  
+
+---
+
+## 🌟 About Me  
+
+👋 Hi, I'm Anil Sherikar, a **passionate developer and AI enthusiast**.  
+I love building **automation tools, AI-driven applications, and open-source projects**.  
+My mission is to use AI & automation to solve real-world problems and **help developers build better software**.  
+
+### 💡 What I Do:
+✅ AI & Deep Learning Research  
+✅ Open-Source Development  
+✅ Software Automation & DevOps  
+✅ Backend & API Development  
+
+> **"Technology should empower, not complicate."** – My Development Philosophy 💡  
 
 ---
 
 ## 🔥 GitHub Stats  
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=radical)
+![Anil's GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)  
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)  
 
 ---
 
 ## 📊 Contribution Graph  
-![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=anilss147&theme=github)
+![GitHub Contribution Graph](https://activity-graph.herokuapp.com/graph?username=anilss147&theme=github)  
 
 ---
 
 ## 🚀 Featured Projects  
-- [🌟 AI Chatbot UI](https://github.com/anilss147/ai-chatbot-ui) - AI-powered chatbot UI with advanced features.  
-- [🚀 Automation Scripts](https://github.com/anilss147/automation-scripts) - Useful scripts for automation.  
-- [🔍 AI Image Processing](https://github.com/anilss147/ai-image-processing) - Advanced image processing using AI.  
-- [⚡ FastAPI Backend](https://github.com/anilss147/fastapi-backend) - High-performance API backend with FastAPI.  
+🔹 [🌟 AI Chatbot UI](https://github.com/anilss147/ai-chatbot-ui) - AI-powered chatbot UI with advanced features.  
+🔹 [🚀 Automation Scripts](https://github.com/anilss147/automation-scripts) - Useful scripts for automation.  
+🔹 [🔍 AI Image Processing](https://github.com/anilss147/ai-image-processing) - Advanced image processing using AI.  
+🔹 [🎤 AI Voice Assistant](https://github.com/anilss147/ai-voice-assistant) - AI-powered voice assistant.  
 
 ---
 
-## 📌 Pinned Projects  
-- [🌟 AI Chatbot UI](https://github.com/anilss147/ai-chatbot-ui) - AI-powered chatbot UI with advanced features.  
-- [🚀 Automation Scripts](https://github.com/anilss147/automation-scripts) - Useful scripts for automation.  
-- [🔍 AI Image Processing](https://github.com/anilss147/ai-image-processing) - Advanced image processing using AI.  
+## 📜 Certifications & Achievements  
+
+🏆 **AI & Deep Learning** –will update soon   
+📜 **Cloud Computing** – –will update soon   
+🎖️ **Hackathons & Competitions** – –will update soon  
+
+---
+
+## 📖 My Blogs & Articles  
+
+🔹 [AI in Automation – The Future of DevOps](https://medium.com/@anilsherikar)  
+🔹 [How to Build a Chatbot Using Python & AI](https://dev.to/anilsherikar)  
+🔹 [Deploying FastAPI on Cloud for Free](https://anilsherikar.dev/blog/fastapi-deployment)  
+
+---
+
+## 📢 Open Source Contributions  
+
+🔹 Contributor to **[FastAPI](https://github.com/tiangolo/fastapi)**  
+🔹 Helped improve **[Hugging Face Transformers](https://github.com/huggingface/transformers)**  
+🔹 Created **automation scripts** for GitHub Actions and CI/CD  
 
 ---
 
 ## 👥 Followers  
-- [@johnDoe](https://github.com/johnDoe)  
-- [@janeSmith](https://github.com/janeSmith)  
-- [@devMaster](https://github.com/devMaster)  
+![GitHub Followers](https://img.shields.io/github/followers/anilss147?style=social)  
+![GitHub Stars](https://img.shields.io/github/stars/anilss147?style=social)  
 
 ---
 
@@ -55,7 +88,16 @@ My goal is to bridge the gap between cutting-edge research and real-world applic
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" width="40px"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="40px"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40px"/>
-</p>
+</p>  
+
+---
+
+## 💡 Fun Facts About Me  
+
+
+💡 I love experimenting with **cutting-edge AI models**.  
+🌍 I'm a strong advocate for **open-source development**.  
+🎮 I enjoy playing **strategy video games & hackathons** in my free time.  
 
 ---
 
@@ -67,4 +109,13 @@ My goal is to bridge the gap between cutting-edge research and real-world applic
 
 ---
 
-**🚀 Let's build something amazing together!** 💡  
+## ❤️ Support My Work  
+
+If you enjoy my work, feel free to support me:  
+
+[![Buy Me a Coffee](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-FFDD00?style=flat&logo=buymeacoffee&logoColor=black)](https://www.buymeacoffee.com/anilsherikar)  
+[![Sponsor Me](https://img.shields.io/badge/-Sponsor%20Me-blue?style=flat&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/anilsherikar)  
+
+---
+
+🚀 **Let's build something amazing together!** 💡  
