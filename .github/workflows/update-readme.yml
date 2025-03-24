@@ -26,6 +26,27 @@ jobs:
           echo "$RESPONSE" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"' >> projects.md
           echo "<!-- PROJECTS END -->" >> projects.md
 
+      - name: Update README
+        run: |
+          awk '/<!-- STATS START -->/{print; system("cat stats.md"); next} /<!-- STATS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
+          awk '/<!-- PROJECTS START -->/{print; system("cat projects.md"); next} /<!-- PROJECTS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+          git add README.md
+          git commit -m "🔄 Auto-update GitHub Stats & Projects" || echo "No changes to commit"
+          git pull --rebase
+          git push
+
+      - name: Generate GitHub Contributions Graph
+        run: |
+          curl -o graph.svg "https://activity-graph.herokuapp.com/graph?username=anilss147&theme=github"
+          echo "<!-- GRAPH START -->" > graph.md
+          echo "![GitHub Activity Graph](graph.svg)" >> graph.md
+          echo "<!-- GRAPH END -->" >> graph.md
+
       - name: Fetch Latest Followers
         run: |
           echo "<!-- FOLLOWERS START -->" > followers.md
@@ -33,25 +54,13 @@ jobs:
           echo "$FOLLOWERS" >> followers.md
           echo "<!-- FOLLOWERS END -->" >> followers.md
 
-      - name: Generate GitHub Contributions Graph
+      - name: Update README with Followers
         run: |
-          echo "<!-- GRAPH START -->" > graph.md
-          curl -o graph.svg "https://activity-graph.herokuapp.com/graph?username=anilss147&theme=github"
-          echo "![GitHub Activity Graph](graph.svg)" >> graph.md
-          echo "<!-- GRAPH END -->" >> graph.md
+          awk '/<!-- FOLLOWERS START -->/{print; system("cat followers.md"); next} /<!-- FOLLOWERS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
 
-      - name: Update README
+      - name: Commit and Push Again
         run: |
-          awk '/<!-- STATS START -->/{print;while(getline<"stats.md")print;next} /<!-- STATS END -->/' README.md > temp && mv temp README.md
-          awk '/<!-- PROJECTS START -->/{print;while(getline<"projects.md")print;next} /<!-- PROJECTS END -->/' README.md > temp && mv temp README.md
-          awk '/<!-- FOLLOWERS START -->/{print;while(getline<"followers.md")print;next} /<!-- FOLLOWERS END -->/' README.md > temp && mv temp README.md
-          awk '/<!-- GRAPH START -->/{print;while(getline<"graph.md")print;next} /<!-- GRAPH END -->/' README.md > temp && mv temp README.md
-
-      - name: Commit and Push Changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions@github.com"
           git add README.md
-          git commit -m "🔄 Auto-update GitHub Stats, Projects, Followers & Graph" || echo "No changes to commit"
+          git commit -m "🔄 Auto-update GitHub Followers" || echo "No changes to commit"
           git pull --rebase
           git push
