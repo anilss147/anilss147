@@ -1,50 +1,73 @@
-name: Update GitHub Profile
+![Profile Banner](https://raw.githubusercontent.com/anilss147/anilss147/main/github-header-image.png)
 
-on:
-  schedule:
-    - cron: "0 */6 * * *"  # Runs every 6 hours
-  workflow_dispatch:  # Allows manual trigger
+# 👋 Hi, I'm Anil Sherikar!
 
-jobs:
-  update-readme:
-    runs-on: ubuntu-latest
+🚀 Passionate Developer | AI Enthusiast | Automation Expert  
 
-    steps:
-      # Step 1: Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v4
+I specialize in **AI, deep learning, image processing, automation, and quality assurance**.  
+My goal is to bridge the gap between cutting-edge research and real-world applications.
 
-      # Step 2: Install Dependencies
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
+---
 
-      # Step 3: Fetch and Update README.md
-      - name: Fetch and Update Stats, Graph, Projects, Followers
-        run: |
-          # Fetch GitHub Stats
-          STATS_URL="![GitHub Stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=radical)"
-          sed -i '/<!-- STATS START -->/,/<!-- STATS END -->/c\<!-- STATS START -->\n'"$STATS_URL"'\n<!-- STATS END -->' README.md
+## 🔥 GitHub Stats  
+<!-- STATS START -->
+_(Stats will be updated automatically)_
+<!-- STATS END -->
 
-          # Fetch Contribution Graph
-          GRAPH_URL="![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=anilss147&theme=github)"
-          sed -i '/<!-- GRAPH START -->/,/<!-- GRAPH END -->/c\<!-- GRAPH START -->\n'"$GRAPH_URL"'\n<!-- GRAPH END -->' README.md
+---
 
-          # Fetch Featured Projects
-          PROJECTS=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"')
-          sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\<!-- PROJECTS START -->\n'"$PROJECTS"'\n<!-- PROJECTS END -->' README.md
+## 📊 Contribution Graph  
+<!-- GRAPH START -->
+_(Graph will be updated automatically)_
+<!-- GRAPH END -->
 
-          # Fetch Followers
-          FOLLOWERS=$(curl -s "https://api.github.com/users/anilss147/followers?per_page=10" | jq -r '.[] | "- [\(.login)](\(.html_url))"')
-          sed -i '/<!-- FOLLOWERS START -->/,/<!-- FOLLOWERS END -->/c\<!-- FOLLOWERS START -->\n'"$FOLLOWERS"'\n<!-- FOLLOWERS END -->' README.md
+---
 
-      # Step 4: Commit and Push Changes
-      - name: Commit and Push Changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "🔄 Auto-update GitHub Profile Stats, Graph, Projects, and Followers" || echo "No changes to commit"
-          git pull --rebase origin main
-          git push
+## 🚀 Featured Projects  
+<!-- PROJECTS START -->
+_(Projects will be updated automatically)_
+<!-- PROJECTS END -->
+
+---
+
+## 📌 Pinned Projects  
+- [🌟 AI Chatbot UI](https://github.com/anilss147/ai-chatbot-ui) - AI-powered chatbot UI with advanced features.  
+- [🚀 Automation Scripts](https://github.com/anilss147/automation-scripts) - Useful scripts for automation.  
+- [🔍 AI Image Processing](https://github.com/anilss147/ai-image-processing) - Advanced image processing using AI.  
+
+---
+
+## 👥 Followers  
+<!-- FOLLOWERS START -->
+_(Followers will be updated automatically)_
+<!-- FOLLOWERS END -->
+
+---
+
+## 🛠️ Tech Stack  
+
+### 🚀 Languages & Tools:  
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40px"/>
+</p>
+
+---
+
+## 🔗 Connect with Me  
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anil-sherikar/)  
+[![Twitter](https://img.shields.io/badge/-Twitter-1DA1F2?style=flat&logo=twitter&logoColor=white)](https://x.com/anil_sherikar09)  
+[![Personal Website](https://img.shields.io/badge/-Website-000000?style=flat&logo=github&logoColor=white)](https://anilsherikar.dev/)  
+
+---
+
+**🚀 Let's build something amazing together!** 💡  
