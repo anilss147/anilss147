@@ -31,8 +31,17 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 ---
 
+![GitHub Streak](https://streak-stats.demolab.com/?user=anilss147&theme=github-dark-blue)
+
+---
+
+![GitHub Languages](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=anilss147&theme=github)
+
+
+---
+
 ## 📊 Contribution Graph  
-![GitHub Contribution Graph](https://github-readme-activity-graph.cyclic.app/graph?username=anilss147&theme=github)  
+![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)  
 
 ---
 
