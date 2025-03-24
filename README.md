@@ -32,7 +32,7 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 ---
 
 ## 📊 Contribution Graph  
-![GitHub Contribution Graph](https://activity-graph.herokuapp.com/graph?username=anilss147&theme=github)  
+![GitHub Contribution Graph](https://github-readme-activity-graph.cyclic.app/graph?username=anilss147&theme=github)  
 
 ---
 
@@ -46,9 +46,9 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 ## 📜 Certifications & Achievements  
 
-🏆 **AI & Deep Learning** –will update soon   
-📜 **Cloud Computing** – –will update soon   
-🎖️ **Hackathons & Competitions** – –will update soon  
+🏆 **AI & Deep Learning** –– –will update soon  
+📜 **Cloud Computing** –– –will update soon  
+🎖️ **Hackathons & Competitions** –– –will update soon  
 
 ---
 
@@ -68,7 +68,7 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 ---
 
-## 👥 Followers  
+## 👥 GitHub Followers & Stars  
 ![GitHub Followers](https://img.shields.io/github/followers/anilss147?style=social)  
 ![GitHub Stars](https://img.shields.io/github/stars/anilss147?style=social)  
 
@@ -93,7 +93,6 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 ---
 
 ## 💡 Fun Facts About Me  
-
 
 💡 I love experimenting with **cutting-edge AI models**.  
 🌍 I'm a strong advocate for **open-source development**.  
