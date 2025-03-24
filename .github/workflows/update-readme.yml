@@ -42,15 +42,10 @@ jobs:
 
       - name: Update README
         run: |
-          STATS_CONTENT=$(cat stats.md | sed 's/[\/&]/\\&/g')
-          PROJECTS_CONTENT=$(cat projects.md | sed 's/[\/&]/\\&/g')
-          FOLLOWERS_CONTENT=$(cat followers.md | sed 's/[\/&]/\\&/g')
-          GRAPH_CONTENT=$(cat graph.md | sed 's/[\/&]/\\&/g')
-
-          sed -i "/<!-- STATS START -->/,/<!-- STATS END -->/c\\<!-- STATS START -->\n$STATS_CONTENT\n<!-- STATS END -->" README.md
-          sed -i "/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\\<!-- PROJECTS START -->\n$PROJECTS_CONTENT\n<!-- PROJECTS END -->" README.md
-          sed -i "/<!-- FOLLOWERS START -->/,/<!-- FOLLOWERS END -->/c\\<!-- FOLLOWERS START -->\n$FOLLOWERS_CONTENT\n<!-- FOLLOWERS END -->" README.md
-          sed -i "/<!-- GRAPH START -->/,/<!-- GRAPH END -->/c\\<!-- GRAPH START -->\n$GRAPH_CONTENT\n<!-- GRAPH END -->" README.md
+          awk '/<!-- STATS START -->/{print;while(getline<"stats.md")print;next} /<!-- STATS END -->/' README.md > temp && mv temp README.md
+          awk '/<!-- PROJECTS START -->/{print;while(getline<"projects.md")print;next} /<!-- PROJECTS END -->/' README.md > temp && mv temp README.md
+          awk '/<!-- FOLLOWERS START -->/{print;while(getline<"followers.md")print;next} /<!-- FOLLOWERS END -->/' README.md > temp && mv temp README.md
+          awk '/<!-- GRAPH START -->/{print;while(getline<"graph.md")print;next} /<!-- GRAPH END -->/' README.md > temp && mv temp README.md
 
       - name: Commit and Push Changes
         run: |
