@@ -26,13 +26,6 @@ jobs:
           echo "$RESPONSE" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"' >> projects.md
           echo "<!-- PROJECTS END -->" >> projects.md
 
-      - name: Generate GitHub Contributions Graph
-        run: |
-          curl -o graph.svg "https://activity-graph.herokuapp.com/graph?username=anilss147&theme=github"
-          echo "<!-- GRAPH START -->" > graph.md
-          echo "![GitHub Activity Graph](graph.svg)" >> graph.md
-          echo "<!-- GRAPH END -->" >> graph.md
-
       - name: Fetch Latest Followers
         run: |
           echo "<!-- FOLLOWERS START -->" > followers.md
@@ -40,18 +33,30 @@ jobs:
           echo "$FOLLOWERS" >> followers.md
           echo "<!-- FOLLOWERS END -->" >> followers.md
 
+      - name: Generate GitHub Contributions Graph
+        run: |
+          echo "<!-- GRAPH START -->" > graph.md
+          curl -o graph.svg "https://activity-graph.herokuapp.com/graph?username=anilss147&theme=github"
+          echo "![GitHub Activity Graph](graph.svg)" >> graph.md
+          echo "<!-- GRAPH END -->" >> graph.md
+
       - name: Update README
         run: |
-          sed -i "/<!-- STATS START -->/,/<!-- STATS END -->/c\<!-- STATS START -->\n$(cat stats.md | sed 's/[&/\]/\\&/g')\n<!-- STATS END -->" README.md
-          sed -i "/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\<!-- PROJECTS START -->\n$(cat projects.md | sed 's/[&/\]/\\&/g')\n<!-- PROJECTS END -->" README.md
-          sed -i "/<!-- GRAPH START -->/,/<!-- GRAPH END -->/c\<!-- GRAPH START -->\n$(cat graph.md | sed 's/[&/\]/\\&/g')\n<!-- GRAPH END -->" README.md
-          sed -i "/<!-- FOLLOWERS START -->/,/<!-- FOLLOWERS END -->/c\<!-- FOLLOWERS START -->\n$(cat followers.md | sed 's/[&/\]/\\&/g')\n<!-- FOLLOWERS END -->" README.md
+          STATS_CONTENT=$(cat stats.md | sed 's/[\/&]/\\&/g')
+          PROJECTS_CONTENT=$(cat projects.md | sed 's/[\/&]/\\&/g')
+          FOLLOWERS_CONTENT=$(cat followers.md | sed 's/[\/&]/\\&/g')
+          GRAPH_CONTENT=$(cat graph.md | sed 's/[\/&]/\\&/g')
+
+          sed -i "/<!-- STATS START -->/,/<!-- STATS END -->/c\\<!-- STATS START -->\n$STATS_CONTENT\n<!-- STATS END -->" README.md
+          sed -i "/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\\<!-- PROJECTS START -->\n$PROJECTS_CONTENT\n<!-- PROJECTS END -->" README.md
+          sed -i "/<!-- FOLLOWERS START -->/,/<!-- FOLLOWERS END -->/c\\<!-- FOLLOWERS START -->\n$FOLLOWERS_CONTENT\n<!-- FOLLOWERS END -->" README.md
+          sed -i "/<!-- GRAPH START -->/,/<!-- GRAPH END -->/c\\<!-- GRAPH START -->\n$GRAPH_CONTENT\n<!-- GRAPH END -->" README.md
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@github.com"
           git add README.md
-          git commit -m "🔄 Auto-update GitHub Profile (Stats, Projects, Graph, Followers)" || echo "No changes to commit"
+          git commit -m "🔄 Auto-update GitHub Stats, Projects, Followers & Graph" || echo "No changes to commit"
           git pull --rebase
           git push
