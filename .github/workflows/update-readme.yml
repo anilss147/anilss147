@@ -31,7 +31,7 @@ jobs:
           echo "$RESPONSE" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"' >> projects.md
           echo "<!-- PROJECTS END -->" >> projects.md
 
-      - name: Update README (Fix `sed` issue)
+      - name: Update README (using awk)
         run: |
           awk '/<!-- STATS START -->/{print; system("cat stats.md"); next} /<!-- STATS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
           awk '/<!-- PROJECTS START -->/{print; system("cat projects.md"); next} /<!-- PROJECTS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
