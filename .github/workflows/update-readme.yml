@@ -48,13 +48,10 @@ jobs:
             jq -r '.[] | "- [\(.login)](\(.html_url))"' >> followers.md
           echo "<!-- FOLLOWERS END -->" >> followers.md
 
-      # Step 7: Update README using awk (No sed, No Errors!)
+      # Step 7: Update README using Python (No sed, No awk, No Errors!)
       - name: Update README
         run: |
-          awk '/<!-- STATS START -->/{print; while(getline line < "stats.md") print line; next} /<!-- STATS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
-          awk '/<!-- PROJECTS START -->/{print; while(getline line < "projects.md") print line; next} /<!-- PROJECTS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
-          awk '/<!-- GRAPH START -->/{print; while(getline line < "graph.md") print line; next} /<!-- GRAPH END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
-          awk '/<!-- FOLLOWERS START -->/{print; while(getline line < "followers.md") print line; next} /<!-- FOLLOWERS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
+          python update_readme.py
 
       # Step 8: Commit and Push Changes
       - name: Commit and Push Changes
