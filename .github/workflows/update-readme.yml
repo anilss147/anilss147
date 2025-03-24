@@ -23,69 +23,49 @@ jobs:
       - name: Fetch GitHub Stats
         run: |
           echo "<!-- STATS START -->" > stats.md
-          echo "![GitHub Stats](https://github-readme-stats.vercel.app/api?username=${{ secrets.GH_USER }}&show_icons=true&theme=radical)" >> stats.md
+          echo "![GitHub Stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=radical)" >> stats.md
           echo "<!-- STATS END -->" >> stats.md
 
-      # Step 4: Fetch Featured Projects
+      # Step 4: Fetch Featured Projects (Without Authentication)
       - name: Fetch Featured Projects
         run: |
           echo "<!-- PROJECTS START -->" > projects.md
-          curl -s -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
-            "https://api.github.com/users/${{ secrets.GH_USER }}/repos?per_page=100" | \
+          curl -s "https://api.github.com/users/anilss147/repos?per_page=100" | \
             jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"' >> projects.md
           echo "<!-- PROJECTS END -->" >> projects.md
 
-      # Step 5: Update README using awk (Fix sed issue)
-      - name: Update README
-        run: |
-          awk '/<!-- STATS START -->/{print; system("cat stats.md"); next} /<!-- STATS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
-          awk '/<!-- PROJECTS START -->/{print; system("cat projects.md"); next} /<!-- PROJECTS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
-
-      # Step 6: Commit and Push Changes (Using PAT)
-      - name: Commit and Push Changes
-        env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-          GH_USER: ${{ secrets.GH_USER }}
-          GH_EMAIL: ${{ secrets.GH_EMAIL }}
-          REPO: ${{ github.repository }}
-        run: |
-          git config --global user.name "$GH_USER"
-          git config --global user.email "$GH_EMAIL"
-          git add README.md
-          git commit -m "🔄 Auto-update GitHub Stats & Projects" || echo "No changes to commit"
-          git pull --rebase origin main
-          git push https://$GH_USER:$PAT_TOKEN@github.com/$REPO.git
-
-      # Step 7: Generate GitHub Contributions Graph
+      # Step 5: Generate GitHub Contributions Graph
       - name: Generate GitHub Contributions Graph
         run: |
-          curl -o graph.svg "https://github-readme-activity-graph.vercel.app/graph?username=${{ secrets.GH_USER }}&theme=github"
+          curl -o graph.svg "https://github-readme-activity-graph.vercel.app/graph?username=anilss147&theme=github"
           echo "<!-- GRAPH START -->" > graph.md
           echo "![GitHub Activity Graph](graph.svg)" >> graph.md
           echo "<!-- GRAPH END -->" >> graph.md
 
-      # Step 8: Fetch Latest Followers
+      # Step 6: Fetch Latest Followers (Without Authentication)
       - name: Fetch Latest Followers
         run: |
           echo "<!-- FOLLOWERS START -->" > followers.md
-          curl -s -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
-            "https://api.github.com/users/${{ secrets.GH_USER }}/followers?per_page=10" | \
+          curl -s "https://api.github.com/users/anilss147/followers?per_page=10" | \
             jq -r '.[] | "- [\(.login)](\(.html_url))"' >> followers.md
           echo "<!-- FOLLOWERS END -->" >> followers.md
 
-      # Step 9: Update README with Followers
-      - name: Update README with Followers
+      # Step 7: Update README using awk
+      - name: Update README
         run: |
+          awk '/<!-- STATS START -->/{print; system("cat stats.md"); next} /<!-- STATS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
+          awk '/<!-- PROJECTS START -->/{print; system("cat projects.md"); next} /<!-- PROJECTS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
+          awk '/<!-- GRAPH START -->/{print; system("cat graph.md"); next} /<!-- GRAPH END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
           awk '/<!-- FOLLOWERS START -->/{print; system("cat followers.md"); next} /<!-- FOLLOWERS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
 
-      # Step 10: Commit and Push Again (Using PAT)
-      - name: Commit and Push Again
+      # Step 8: Commit and Push Changes (Without PAT)
+      - name: Commit and Push Changes
         env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-          GH_USER: ${{ secrets.GH_USER }}
-          REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Default GitHub Actions Token
         run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "🔄 Auto-update GitHub Followers" || echo "No changes to commit"
+          git commit -m "🔄 Auto-update GitHub Profile Stats, Projects, and Followers" || echo "No changes to commit"
           git pull --rebase origin main
-          git push https://$GH_USER:$PAT_TOKEN@github.com/$REPO.git
+          git push
