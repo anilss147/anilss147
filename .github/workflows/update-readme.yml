@@ -1,50 +1,64 @@
-name: Update README with Latest GitHub Repos
+name: Update GitHub Profile
 
 on:
   schedule:
-    - cron: "0 * * * *"  # Runs every hour
+    - cron: "0 */6 * * *"  # Runs every 6 hours
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Fetch full history to avoid conflicts
 
-      - name: Fetch All GitHub Repositories
-          run: |
-            echo "<!-- PROJECTS START -->" > projects.md
-            RESPONSE=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100")
-            
-            if echo "$RESPONSE" | jq empty 2>/dev/null; then
-              echo "$RESPONSE" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description available.")"' >> projects.md
-            else
-              echo "⚠️ GitHub API returned an unexpected response!" >> projects.md
-            
-
-    echo "<!-- PROJECTS END -->" >> projects.md
-
-
-      - name: Update README.md (Preserve Other Content)
+      - name: Fetch GitHub Stats
         run: |
-          awk '/<!-- PROJECTS START -->/{print;while(getline<"projects.md")print;next}1' README.md > temp.md && mv temp.md README.md
+          echo "<!-- STATS START -->" > stats.md
+          echo "![GitHub Stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=radical)" >> stats.md
+          echo "<!-- STATS END -->" >> stats.md
 
-      - name: Configure Git
+      - name: Fetch Featured Projects
+        run: |
+          echo "<!-- PROJECTS START -->" > projects.md
+          RESPONSE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/users/anilss147/repos?per_page=100")
+          echo "$RESPONSE" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"' >> projects.md
+          echo "<!-- PROJECTS END -->" >> projects.md
+
+      - name: Update README
+        run: |
+          sed -i '/<!-- STATS START -->/,/<!-- STATS END -->/c\<!-- STATS START -->\n'$(cat stats.md)'\n<!-- STATS END -->' README.md
+          sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\<!-- PROJECTS START -->\n'$(cat projects.md)'\n<!-- PROJECTS END -->' README.md
+
+      - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "github-actions@github.com"
+          git add README.md
+          git commit -m "🔄 Auto-update GitHub Stats & Projects" || echo "No changes to commit"
+          git pull --rebase
+          git push
 
-      - name: Ensure Branch is Up to Date
+      - name: Generate GitHub Contributions Graph
         run: |
-          git fetch origin main
-          git reset --hard origin/main  # Sync with remote to avoid conflicts
-          git pull origin main --rebase --autostash || echo "No updates needed"
+          curl -o graph.svg "https://activity-graph.herokuapp.com/graph?username=anilss147&theme=github"
+          echo "![GitHub Activity Graph](graph.svg)" >> graph.md
 
-      - name: Commit & Push Changes
+      - name: Fetch Latest Followers
+        run: |
+          echo "<!-- FOLLOWERS START -->" > followers.md
+          FOLLOWERS=$(curl -s "https://api.github.com/users/anilss147/followers?per_page=10" | jq -r '.[] | "- [\(.login)](\(.html_url))"')
+          echo "$FOLLOWERS" >> followers.md
+          echo "<!-- FOLLOWERS END -->" >> followers.md
+
+      - name: Update README with Followers
+        run: |
+          sed -i '/<!-- FOLLOWERS START -->/,/<!-- FOLLOWERS END -->/c\<!-- FOLLOWERS START -->\n'$(cat followers.md)'\n<!-- FOLLOWERS END -->' README.md
+
+      - name: Commit and Push Again
         run: |
           git add README.md
-          git diff --staged --quiet || git commit -m "Auto-update README with latest GitHub data"
-          git push origin main || (git pull origin main --rebase --autostash && git push origin main)
+          git commit -m "🔄 Auto-update GitHub Followers" || echo "No changes to commit"
+          git pull --rebase
+          git push
