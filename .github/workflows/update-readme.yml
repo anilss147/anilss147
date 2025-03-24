@@ -28,10 +28,8 @@ jobs:
 
       - name: Update README
         run: |
-          STATS_CONTENT=$(cat stats.md)
-          PROJECTS_CONTENT=$(cat projects.md)
-          sed -i "/<!-- STATS START -->/,/<!-- STATS END -->/c\<!-- STATS START -->\n${STATS_CONTENT}\n<!-- STATS END -->" README.md
-          sed -i "/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\<!-- PROJECTS START -->\n${PROJECTS_CONTENT}\n<!-- PROJECTS END -->" README.md
+          sed -i "/<!-- STATS START -->/,/<!-- STATS END -->/c\<!-- STATS START -->\n$(cat stats.md | sed 's/[&/\]/\\&/g')\n<!-- STATS END -->" README.md
+          sed -i "/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\<!-- PROJECTS START -->\n$(cat projects.md | sed 's/[&/\]/\\&/g')\n<!-- PROJECTS END -->" README.md
 
       - name: Commit and Push Changes
         run: |
@@ -56,8 +54,7 @@ jobs:
 
       - name: Update README with Followers
         run: |
-          FOLLOWERS_CONTENT=$(cat followers.md)
-          sed -i "/<!-- FOLLOWERS START -->/,/<!-- FOLLOWERS END -->/c\<!-- FOLLOWERS START -->\n${FOLLOWERS_CONTENT}\n<!-- FOLLOWERS END -->" README.md
+          sed -i "/<!-- FOLLOWERS START -->/,/<!-- FOLLOWERS END -->/c\<!-- FOLLOWERS START -->\n$(cat followers.md | sed 's/[&/\]/\\&/g')\n<!-- FOLLOWERS END -->" README.md
 
       - name: Commit and Push Again
         run: |
