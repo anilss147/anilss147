@@ -117,12 +117,10 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 ---
 
+
 ## ❤️ Support My Work  
 
-If you enjoy my work, feel free to support me:  
-
-[![Buy Me a Coffee](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-FFDD00?style=flat&logo=buymeacoffee&logoColor=black)](https://www.buymeacoffee.com/anilsherikar)  
-[![Sponsor Me](https://img.shields.io/badge/-Sponsor%20Me-blue?style=flat&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/anilsherikar)  
+Want to support my open-source projects? **Sponsorship options coming soon! 🚀**
 
 ---
 
