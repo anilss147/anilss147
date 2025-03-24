@@ -10,19 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install jq (if needed)
+      # Step 2: Install jq (if needed)
+      - name: Install jq
         run: |
           sudo apt-get update && sudo apt-get install -y jq
 
+      # Step 3: Fetch GitHub Stats
       - name: Fetch GitHub Stats
         run: |
           echo "<!-- STATS START -->" > stats.md
           echo "![GitHub Stats](https://github-readme-stats.vercel.app/api?username=${{ secrets.GH_USER }}&show_icons=true&theme=radical)" >> stats.md
           echo "<!-- STATS END -->" >> stats.md
 
+      # Step 4: Fetch Featured Projects
       - name: Fetch Featured Projects
         run: |
           echo "<!-- PROJECTS START -->" > projects.md
@@ -31,11 +35,13 @@ jobs:
           echo "$RESPONSE" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"' >> projects.md
           echo "<!-- PROJECTS END -->" >> projects.md
 
-      - name: Update README (using awk)
+      # Step 5: Update README using awk
+      - name: Update README
         run: |
           awk '/<!-- STATS START -->/{print; system("cat stats.md"); next} /<!-- STATS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
           awk '/<!-- PROJECTS START -->/{print; system("cat projects.md"); next} /<!-- PROJECTS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
 
+      # Step 6: Commit and Push Changes
       - name: Commit and Push Changes
         run: |
           git config --global user.name "${{ secrets.GH_USER }}"
@@ -45,6 +51,7 @@ jobs:
           git pull --rebase origin main
           git push
 
+      # Step 7: Generate GitHub Contributions Graph
       - name: Generate GitHub Contributions Graph
         run: |
           curl -o graph.svg "https://github-readme-activity-graph.vercel.app/graph?username=${{ secrets.GH_USER }}&theme=github"
@@ -52,6 +59,7 @@ jobs:
           echo "![GitHub Activity Graph](graph.svg)" >> graph.md
           echo "<!-- GRAPH END -->" >> graph.md
 
+      # Step 8: Fetch Latest Followers
       - name: Fetch Latest Followers
         run: |
           echo "<!-- FOLLOWERS START -->" > followers.md
@@ -60,10 +68,12 @@ jobs:
           echo "$FOLLOWERS" >> followers.md
           echo "<!-- FOLLOWERS END -->" >> followers.md
 
+      # Step 9: Update README with Followers
       - name: Update README with Followers
         run: |
           awk '/<!-- FOLLOWERS START -->/{print; system("cat followers.md"); next} /<!-- FOLLOWERS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
 
+      # Step 10: Commit and Push Again
       - name: Commit and Push Again
         run: |
           git add README.md
