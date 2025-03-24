@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Install jq (if needed)
+      # Step 2: Install Dependencies
       - name: Install jq
         run: |
           sudo apt-get update && sudo apt-get install -y jq
@@ -30,26 +30,31 @@ jobs:
       - name: Fetch Featured Projects
         run: |
           echo "<!-- PROJECTS START -->" > projects.md
-          RESPONSE=$(curl -s -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
-            "https://api.github.com/users/${{ secrets.GH_USER }}/repos?per_page=100")
-          echo "$RESPONSE" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"' >> projects.md
+          curl -s -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
+            "https://api.github.com/users/${{ secrets.GH_USER }}/repos?per_page=100" | \
+            jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"' >> projects.md
           echo "<!-- PROJECTS END -->" >> projects.md
 
-      # Step 5: Update README using awk
+      # Step 5: Update README using awk (Fix sed issue)
       - name: Update README
         run: |
           awk '/<!-- STATS START -->/{print; system("cat stats.md"); next} /<!-- STATS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
           awk '/<!-- PROJECTS START -->/{print; system("cat projects.md"); next} /<!-- PROJECTS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
 
-      # Step 6: Commit and Push Changes
+      # Step 6: Commit and Push Changes (Using PAT)
       - name: Commit and Push Changes
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_USER: ${{ secrets.GH_USER }}
+          GH_EMAIL: ${{ secrets.GH_EMAIL }}
+          REPO: ${{ github.repository }}
         run: |
-          git config --global user.name "${{ secrets.GH_USER }}"
-          git config --global user.email "${{ secrets.GH_EMAIL }}"
+          git config --global user.name "$GH_USER"
+          git config --global user.email "$GH_EMAIL"
           git add README.md
           git commit -m "🔄 Auto-update GitHub Stats & Projects" || echo "No changes to commit"
           git pull --rebase origin main
-          git push
+          git push https://$GH_USER:$PAT_TOKEN@github.com/$REPO.git
 
       # Step 7: Generate GitHub Contributions Graph
       - name: Generate GitHub Contributions Graph
@@ -63,9 +68,9 @@ jobs:
       - name: Fetch Latest Followers
         run: |
           echo "<!-- FOLLOWERS START -->" > followers.md
-          FOLLOWERS=$(curl -s -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
-            "https://api.github.com/users/${{ secrets.GH_USER }}/followers?per_page=10" | jq -r '.[] | "- [\(.login)](\(.html_url))"')
-          echo "$FOLLOWERS" >> followers.md
+          curl -s -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
+            "https://api.github.com/users/${{ secrets.GH_USER }}/followers?per_page=10" | \
+            jq -r '.[] | "- [\(.login)](\(.html_url))"' >> followers.md
           echo "<!-- FOLLOWERS END -->" >> followers.md
 
       # Step 9: Update README with Followers
@@ -73,10 +78,14 @@ jobs:
         run: |
           awk '/<!-- FOLLOWERS START -->/{print; system("cat followers.md"); next} /<!-- FOLLOWERS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
 
-      # Step 10: Commit and Push Again
+      # Step 10: Commit and Push Again (Using PAT)
       - name: Commit and Push Again
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_USER: ${{ secrets.GH_USER }}
+          REPO: ${{ github.repository }}
         run: |
           git add README.md
           git commit -m "🔄 Auto-update GitHub Followers" || echo "No changes to commit"
           git pull --rebase origin main
-          git push
+          git push https://$GH_USER:$PAT_TOKEN@github.com/$REPO.git
