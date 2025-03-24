@@ -10,23 +10,20 @@ My goal is to bridge the gap between cutting-edge research and real-world applic
 ---
 
 ## 🔥 GitHub Stats  
-<!-- STATS START -->
-_(Stats will be updated automatically)_
-<!-- STATS END -->
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=radical)
 
 ---
 
 ## 📊 Contribution Graph  
-<!-- GRAPH START -->
-_(Graph will be updated automatically)_
-<!-- GRAPH END -->
+![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=anilss147&theme=github)
 
 ---
 
 ## 🚀 Featured Projects  
-<!-- PROJECTS START -->
-_(Projects will be updated automatically)_
-<!-- PROJECTS END -->
+- [🌟 AI Chatbot UI](https://github.com/anilss147/ai-chatbot-ui) - AI-powered chatbot UI with advanced features.  
+- [🚀 Automation Scripts](https://github.com/anilss147/automation-scripts) - Useful scripts for automation.  
+- [🔍 AI Image Processing](https://github.com/anilss147/ai-image-processing) - Advanced image processing using AI.  
+- [⚡ FastAPI Backend](https://github.com/anilss147/fastapi-backend) - High-performance API backend with FastAPI.  
 
 ---
 
@@ -38,9 +35,9 @@ _(Projects will be updated automatically)_
 ---
 
 ## 👥 Followers  
-<!-- FOLLOWERS START -->
-_(Followers will be updated automatically)_
-<!-- FOLLOWERS END -->
+- [@johnDoe](https://github.com/johnDoe)  
+- [@janeSmith](https://github.com/janeSmith)  
+- [@devMaster](https://github.com/devMaster)  
 
 ---
 
