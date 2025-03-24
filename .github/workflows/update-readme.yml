@@ -48,7 +48,7 @@ jobs:
             jq -r '.[] | "- [\(.login)](\(.html_url))"' >> followers.md
           echo "<!-- FOLLOWERS END -->" >> followers.md
 
-      # Step 7: Update README with awk (Fixes sed issue)
+      # Step 7: Update README using awk
       - name: Update README
         run: |
           awk '/<!-- STATS START -->/{print; system("cat stats.md"); next} /<!-- STATS END -->/{print; next} 1' README.md > temp.md && mv temp.md README.md
