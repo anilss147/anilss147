@@ -2,9 +2,10 @@
 
 # 👋 Hi, I'm Anil Sherikar!
 
-🚀 Passionate Developer | AI Enthusiast | Automation Expert
+🚀 Passionate Developer | AI Enthusiast | Automation Expert  
 
-I specialize in **AI, deep learning, image processing, automation, and quality assurance**. My goal is to bridge the gap between cutting-edge research and real-world applications.
+I specialize in **AI, deep learning, image processing, automation, and quality assurance**.  
+My goal is to bridge the gap between cutting-edge research and real-world applications.
 
 ---
 
@@ -13,10 +14,28 @@ I specialize in **AI, deep learning, image processing, automation, and quality a
 _(Stats will be updated automatically)_
 <!-- STATS END -->
 
+---
+
+## 📊 Contribution Graph  
+<!-- GRAPH START -->
+_(Graph will be updated automatically)_
+<!-- GRAPH END -->
+
+---
+
 ## 🚀 Featured Projects  
 <!-- PROJECTS START -->
 _(Projects will be updated automatically)_
 <!-- PROJECTS END -->
+
+---
+
+## 📌 Pinned Projects  
+- [🌟 AI Chatbot UI](https://github.com/anilss147/ai-chatbot-ui) - AI-powered chatbot UI with advanced features.  
+- [🚀 Automation Scripts](https://github.com/anilss147/automation-scripts) - Useful scripts for automation.  
+- [🔍 AI Image Processing](https://github.com/anilss147/ai-image-processing) - Advanced image processing using AI.  
+
+---
 
 ## 👥 Followers  
 <!-- FOLLOWERS START -->
@@ -35,6 +54,10 @@ _(Followers will be updated automatically)_
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="40px"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" width="40px"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="40px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40px"/>
 </p>
 
 ---
