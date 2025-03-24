@@ -9,22 +9,18 @@ I specialize in **AI, deep learning, image processing, automation, and quality a
 ---
 
 ## 🔥 GitHub Stats  
-
 <!-- STATS START -->
+_(Stats will be updated automatically)_
 <!-- STATS END -->
 
----
-
 ## 🚀 Featured Projects  
-
 <!-- PROJECTS START -->
+_(Projects will be updated automatically)_
 <!-- PROJECTS END -->
 
----
-
 ## 👥 Followers  
-
 <!-- FOLLOWERS START -->
+_(Followers will be updated automatically)_
 <!-- FOLLOWERS END -->
 
 ---
