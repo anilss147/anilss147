@@ -31,7 +31,7 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 ---
 
-![GitHub Streak](https://streak-stats.demolab.com/?user=anilss147&theme=github-dark-blue)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=anilss147&theme=github-dark-blue)
 
 ---
 
