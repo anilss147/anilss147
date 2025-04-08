@@ -1,50 +1,43 @@
-name: 🛠️ Update GitHub README Monthly
+name: 🔁 Auto Update GitHub README
 
 on:
   schedule:
-    - cron: '0 0 1 * *'  # Runs on the 1st day of every month
-  workflow_dispatch:     # Also allow manual trigger
+    - cron: "0 0 1 * *"  # Runs on the 1st day of each month at midnight
+  workflow_dispatch:
 
 jobs:
   update-readme:
-    name: 🔄 Update README Content
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Repository
+      - name: 📥 Checkout Repo
         uses: actions/checkout@v3
 
-      - name: 🔧 Install Dependencies (jq & perl)
-        run: sudo apt-get update && sudo apt-get install -y jq perl
-
-      - name: 🧮 Update Stats and Graphs
+      - name: 🛠️ Update README
         run: |
-          STATS_URL=$'![Anil\'s GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)\n![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)'
-          perl -0777 -i -pe "s/<!-- STATS START -->.*?<!-- STATS END -->/<!-- STATS START -->\n$STATS_URL\n<!-- STATS END -->/s" README.md
+          STATS_URL='![Anil'\''s GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)'
 
-          GRAPH_URL="![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)"
+          GRAPH_URL='![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)'
+
+          perl -0777 -i -pe "s/<!-- STATS START -->.*?<!-- STATS END -->/<!-- STATS START -->\n$STATS_URL\n<!-- STATS END -->/s" README.md
           perl -0777 -i -pe "s/<!-- GRAPH START -->.*?<!-- GRAPH END -->/<!-- GRAPH START -->\n$GRAPH_URL\n<!-- GRAPH END -->/s" README.md
 
-      - name: 🚀 Update Projects Section
-        run: |
           PROJECTS=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100" | jq -r '.[] | "🔹 [\(.name)](\(.html_url)) - \(.description // \"No description.\")"')
-
           echo "<!-- PROJECTS START -->" > temp_projects.txt
           echo "$PROJECTS" >> temp_projects.txt
           echo "<!-- PROJECTS END -->" >> temp_projects.txt
-
-          perl -0777 -i -pe "s/<!-- PROJECTS START -->.*?<!-- PROJECTS END -->/`cat temp_projects.txt`/se" README.md
+          perl -0777 -i -pe "s/<!-- PROJECTS START -->.*?<!-- PROJECTS END -->/`cat temp_projects.txt | sed 's/\\/\\\\/g; s/\//\\\//g'`/s" README.md
           rm temp_projects.txt
 
-      - name: 👥 Update Followers Section
-        run: |
           FOLLOWERS=$(curl -s "https://api.github.com/users/anilss147/followers?per_page=10" | jq -r '.[] | "- [\(.login)](\(.html_url))"')
-          perl -0777 -i -pe "s/<!-- FOLLOWERS START -->.*?<!-- FOLLOWERS END -->/<!-- FOLLOWERS START -->\n$FOLLOWERS\n<!-- FOLLOWERS END -->/s" README.md
+          FOLLOWERS_BLOCK="<!-- FOLLOWERS START -->\n$FOLLOWERS\n<!-- FOLLOWERS END -->"
+          perl -0777 -i -pe "s/<!-- FOLLOWERS START -->.*?<!-- FOLLOWERS END -->/$FOLLOWERS_BLOCK/s" README.md
 
-      - name: 💾 Commit Changes
+      - name: 📤 Commit & Push Changes
         run: |
-          git config --global user.name "anilss147"
-          git config --global user.email "anil@example.com"
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
           git add README.md
-          git commit -m "🔄 Auto-update README with stats, projects, followers"
+          git commit -m "📈 auto: updated GitHub stats, projects, followers" || echo "No changes to commit"
           git push
