@@ -2,7 +2,7 @@ name: Update GitHub Profile Custom
 
 on:
   schedule:
-    - cron: "0 0 1 * *"  # Runs monthly
+    - cron: "0 0 1 * *"  # Every month
   workflow_dispatch:
 
 jobs:
@@ -17,22 +17,19 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y jq
 
       - name: Fetch and Update README.md
+        shell: bash
         run: |
-          STATS_URL="![Anil's GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)"
+          STATS_URL=$'![Anil\'s GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)\n![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)'
           sed -i '/<!-- STATS START -->/,/<!-- STATS END -->/c\<!-- STATS START -->\n'"$STATS_URL"'\n<!-- STATS END -->' README.md
 
           GRAPH_URL="![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)"
           sed -i '/<!-- GRAPH START -->/,/<!-- GRAPH END -->/c\<!-- GRAPH START -->\n'"$GRAPH_URL"'\n<!-- GRAPH END -->' README.md
 
-          PROJECTS=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100" | \
-            jq -r '.[] | "🔹 [\(.name)](\(.html_url)) - \(.description // "No description.")"')
-
-          awk -v content="$PROJECTS" '
-            BEGIN { print "<!-- PROJECTS START -->" }
-            { print content }
-            END { print "<!-- PROJECTS END -->" }
-          ' > temp_projects.txt
+          PROJECTS=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100" | jq -r '.[] | "🔹 [\(.name)](\(.html_url)) - \(.description // \"No description.\")"')
+          
+          echo "<!-- PROJECTS START -->" > temp_projects.txt
+          echo "$PROJECTS" >> temp_projects.txt
+          echo "<!-- PROJECTS END -->" >> temp_projects.txt
 
           sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/r temp_projects.txt' README.md
           sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/d' README.md
