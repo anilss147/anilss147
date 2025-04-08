@@ -23,6 +23,12 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 > **"Technology should empower, not complicate."** – My Development Philosophy 💡  
 
+### 🤖 AI Projects & Interests  
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=python,tensorflow,pytorch,fastapi,docker,linux,opencv" />
+</p>
+
+
 ---
 
 ## 🔥 GitHub Stats  
@@ -31,10 +37,13 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)
 <!-- STATS END -->
 
+![Anil's GitHub Trophy](https://github-profile-trophy.vercel.app/?username=anilss147&theme=tokyonight&column=7)
+
+
 ---
 
 <!-- STREAK START -->
-![GitHub Streak](https://github-readme-streak-stats.demolab.com/?user=anilss147&theme=tokyonight)
+![GitHub Streak](https://streak-stats.demolab.com/?user=anilss147&theme=tokyonight)
 <!-- STREAK END -->
 
 ---
