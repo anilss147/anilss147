@@ -86,9 +86,10 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 18. [flask-ocr-app](https://github.com/anilss147/flask-ocr-app) - A Flask-based web application for extracting text from images using Tesseract OCR. Upload images and get text results instantly!
 19. [DrapeStyle](https://github.com/anilss147/DrapeStyle) - No description.
 20. [BrainVault](https://github.com/anilss147/BrainVault) - No description.
-21. [anilss147](https://github.com/anilss147/anilss147) - My Personal Repository 
-22. [AI-Call-Assistant-Pro](https://github.com/anilss147/AI-Call-Assistant-Pro) - A fully open-source AI Call Assistant with real-time speech-to-text (Whisper), AI-powered responses (Mistral 7B/LLaMA 2), sentiment analysis, memory (SQLite/PostgreSQL), text-to-speech (Coqui TTS), and WebRTC live calls. Runs on Google Colab with a Gradio UI & FastAPI backend.
-23. [AI-Assistant-Call-Bot](https://github.com/anilss147/AI-Assistant-Call-Bot) - AI Assistant Call Bot is an open-source AI voice assistant for real-time calls. It features Speech-to-Text (Whisper), AI responses (Mistral 7B), Voice Cloning (Coqui-TTS), Fraud Detection, Smart Call Routing, and IoT Integration. Deploy via Docker, Kubernetes, Hugging Face.
+21. [AstraMind-The-Ultimate-AI-Multimodal-Assistant-Dashboard](https://github.com/anilss147/AstraMind-The-Ultimate-AI-Multimodal-Assistant-Dashboard) - AstraMind is a powerful multimodal AI assistant dashboard that supports text, voice, image, and video interaction. Built with FastAPI and Gradio, it integrates open-source models like LLaMA, Whisper, and Stable Diffusion for real-time, intelligent AI experiences.
+22. [anilss147](https://github.com/anilss147/anilss147) - My Personal Repository 
+23. [AI-Call-Assistant-Pro](https://github.com/anilss147/AI-Call-Assistant-Pro) - A fully open-source AI Call Assistant with real-time speech-to-text (Whisper), AI-powered responses (Mistral 7B/LLaMA 2), sentiment analysis, memory (SQLite/PostgreSQL), text-to-speech (Coqui TTS), and WebRTC live calls. Runs on Google Colab with a Gradio UI & FastAPI backend.
+24. [AI-Assistant-Call-Bot](https://github.com/anilss147/AI-Assistant-Call-Bot) - AI Assistant Call Bot is an open-source AI voice assistant for real-time calls. It features Speech-to-Text (Whisper), AI responses (Mistral 7B), Voice Cloning (Coqui-TTS), Fraud Detection, Smart Call Routing, and IoT Integration. Deploy via Docker, Kubernetes, Hugging Face.
 <!-- PROJECTS END -->
 
 
