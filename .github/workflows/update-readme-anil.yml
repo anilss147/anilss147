@@ -39,22 +39,22 @@ jobs:
           project_section = "\\n".join(project_lines[:30])  # Top 30 repos
 
           readme_content = f\"""\
-# 🚀 Auto-Generated README_2.md
-
-## 👋 Hello, I'm Anil Sherikar!
-
-🚀 Developer | AI Enthusiast | Automation Expert
-
----
-
-## 🚀 Dynamic Projects
-
-{project_section}
-
----
-
-## 📢 Auto-updated on GitHub Actions
-\"""
+          # 🚀 Auto-Generated README_2.md
+          
+          ## 👋 Hello, I'm Anil Sherikar!
+          
+          🚀 Developer | AI Enthusiast | Automation Expert
+          
+          ---
+          
+          ## 🚀 Dynamic Projects
+          
+          {project_section}
+          
+          ---
+          
+          ## 📢 Auto-updated on GitHub Actions
+          \"""
 
           with open("README_2.md", "w", encoding="utf-8") as f:
               f.write(readme_content)
