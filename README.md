@@ -80,14 +80,15 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 12. [landmark-explorer](https://github.com/anilss147/landmark-explorer) - Landmark Explorer is a full-stack web app to explore landmarks on an interactive map. Built with React, Leaflet, and Node.js, it integrates Wikipedia and OpenStreetMap APIs for real-time data, geocoding, and caching. Features include search, filtering, and responsive design
 13. [Knowledge-Tracing-SAINT](https://github.com/anilss147/Knowledge-Tracing-SAINT) - Towards an Appropriate Query, Key, and Value Computation for Knowledge Tracing -Paper Implementation on "Riiid! Answer Correctness Prediction", Kaggle Competition
 14. [IntelligentAssistant](https://github.com/anilss147/IntelligentAssistant) - No description.
-15. [Image-transformations](https://github.com/anilss147/Image-transformations) - Image transformations with skimage and OpenCV
-16. [gradio-ai-chatbot](https://github.com/anilss147/gradio-ai-chatbot) - a
-17. [flask-ocr-app](https://github.com/anilss147/flask-ocr-app) - A Flask-based web application for extracting text from images using Tesseract OCR. Upload images and get text results instantly!
-18. [DrapeStyle](https://github.com/anilss147/DrapeStyle) - No description.
-19. [BrainVault](https://github.com/anilss147/BrainVault) - No description.
-20. [anilss147](https://github.com/anilss147/anilss147) - My Personal Repository 
-21. [AI-Call-Assistant-Pro](https://github.com/anilss147/AI-Call-Assistant-Pro) - A fully open-source AI Call Assistant with real-time speech-to-text (Whisper), AI-powered responses (Mistral 7B/LLaMA 2), sentiment analysis, memory (SQLite/PostgreSQL), text-to-speech (Coqui TTS), and WebRTC live calls. Runs on Google Colab with a Gradio UI & FastAPI backend.
-22. [AI-Assistant-Call-Bot](https://github.com/anilss147/AI-Assistant-Call-Bot) - AI Assistant Call Bot is an open-source AI voice assistant for real-time calls. It features Speech-to-Text (Whisper), AI responses (Mistral 7B), Voice Cloning (Coqui-TTS), Fraud Detection, Smart Call Routing, and IoT Integration. Deploy via Docker, Kubernetes, Hugging Face.
+15. [Intelligent-Knowledge-Management-System](https://github.com/anilss147/Intelligent-Knowledge-Management-System) - Your Personal Knowledge Fortress: An offline-first AI-powered knowledge management system built with Python and Streamlit that scrapes, summarizes, and stores information using open-source AI models.
+16. [Image-transformations](https://github.com/anilss147/Image-transformations) - Image transformations with skimage and OpenCV
+17. [gradio-ai-chatbot](https://github.com/anilss147/gradio-ai-chatbot) - a
+18. [flask-ocr-app](https://github.com/anilss147/flask-ocr-app) - A Flask-based web application for extracting text from images using Tesseract OCR. Upload images and get text results instantly!
+19. [DrapeStyle](https://github.com/anilss147/DrapeStyle) - No description.
+20. [BrainVault](https://github.com/anilss147/BrainVault) - No description.
+21. [anilss147](https://github.com/anilss147/anilss147) - My Personal Repository 
+22. [AI-Call-Assistant-Pro](https://github.com/anilss147/AI-Call-Assistant-Pro) - A fully open-source AI Call Assistant with real-time speech-to-text (Whisper), AI-powered responses (Mistral 7B/LLaMA 2), sentiment analysis, memory (SQLite/PostgreSQL), text-to-speech (Coqui TTS), and WebRTC live calls. Runs on Google Colab with a Gradio UI & FastAPI backend.
+23. [AI-Assistant-Call-Bot](https://github.com/anilss147/AI-Assistant-Call-Bot) - AI Assistant Call Bot is an open-source AI voice assistant for real-time calls. It features Speech-to-Text (Whisper), AI responses (Mistral 7B), Voice Cloning (Coqui-TTS), Fraud Detection, Smart Call Routing, and IoT Integration. Deploy via Docker, Kubernetes, Hugging Face.
 <!-- PROJECTS END -->
 
 
