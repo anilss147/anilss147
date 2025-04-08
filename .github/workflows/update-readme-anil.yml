@@ -2,8 +2,8 @@ name: 🚀 Auto-Update README_2.md Monthly
 
 on:
   schedule:
-    - cron: "0 0 1 * *"  # Run every 1st of the month at midnight UTC
-  workflow_dispatch:     # Manual trigger support
+    - cron: "0 0 1 * *"  # Every 1st of the month
+  workflow_dispatch:     # Allow manual trigger
 
 jobs:
   update-readme:
@@ -23,7 +23,7 @@ jobs:
 
       - name: 📝 Generate README_2.md
         run: |
-          python - <<EOF
+          cat <<EOF > generate.py
           from github import Github
 
           USERNAME = "anilss147"
@@ -38,32 +38,34 @@ jobs:
 
           project_section = "\\n".join(project_lines[:30])  # Top 30 repos
 
-          readme_content = f\"""\
-          # 🚀 Auto-Generated README_2.md
-          
-          ## 👋 Hello, I'm Anil Sherikar!
-          
-          🚀 Developer | AI Enthusiast | Automation Expert
-          
-          ---
-          
-          ## 🚀 Dynamic Projects
-          
-          {project_section}
-          
-          ---
-          
-          ## 📢 Auto-updated on GitHub Actions
-          \"""
+          readme_content = f"""# 🚀 Auto-Generated README_2.md
+
+## 👋 Hello, I'm Anil Sherikar!
+
+🚀 Developer | AI Enthusiast | Automation Expert
+
+---
+
+## 🚀 Dynamic Projects
+
+{project_section}
+
+---
+
+## 📢 Auto-updated on GitHub Actions
+"""
 
           with open("README_2.md", "w", encoding="utf-8") as f:
               f.write(readme_content)
           EOF
 
+          python generate.py
+
       - name: 📦 Commit & Push if README_2.md Changed
         run: |
           git config --global user.name "anilss147"
           git config --global user.email "anil@example.com"
+
           if [[ `git status --porcelain README_2.md` ]]; then
             git add README_2.md
             git commit -m "📦 Auto-update README_2.md with latest projects"
