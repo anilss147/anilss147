@@ -3,7 +3,7 @@ name: 🚀 Auto-Update README_2.md Monthly
 on:
   schedule:
     - cron: "0 0 1 * *"  # Every 1st of the month
-  workflow_dispatch:     # Allow manual trigger
+  workflow_dispatch:
 
 jobs:
   update-readme:
@@ -19,26 +19,26 @@ jobs:
           python-version: "3.10"
 
       - name: 🧠 Install PyGithub
-        run: pip install PyGithub requests
+        run: pip install PyGithub
 
       - name: 📝 Generate README_2.md
         run: |
-          cat <<EOF > generate.py
-          from github import Github
+          echo "from github import Github
+import os
 
-          USERNAME = "anilss147"
-          g = Github()
-          user = g.get_user(USERNAME)
-          repos = user.get_repos()
+USERNAME = 'anilss147'
+g = Github()
+user = g.get_user(USERNAME)
+repos = user.get_repos()
 
-          project_lines = []
-          for i, repo in enumerate(sorted(repos, key=lambda r: r.created_at, reverse=True), start=1):
-              line = f"{i}. [{repo.name}]({repo.html_url}) - {repo.description or 'No description.'}"
-              project_lines.append(line)
+project_lines = []
+for i, repo in enumerate(sorted(repos, key=lambda r: r.created_at, reverse=True), start=1):
+    line = f'{i}. [{repo.name}]({repo.html_url}) - {repo.description or \"No description.\"}'
+    project_lines.append(line)
 
-          project_section = "\\n".join(project_lines[:30])  # Top 30 repos
+project_section = '\\n'.join(project_lines[:30])
 
-          readme_content = f"""# 🚀 Auto-Generated README_2.md
+readme_content = f\"\"\"# 🚀 Auto-Generated README_2.md
 
 ## 👋 Hello, I'm Anil Sherikar!
 
@@ -53,12 +53,11 @@ jobs:
 ---
 
 ## 📢 Auto-updated on GitHub Actions
-"""
+\"\"\"
 
-          with open("README_2.md", "w", encoding="utf-8") as f:
-              f.write(readme_content)
-          EOF
-
+with open('README_2.md', 'w', encoding='utf-8') as f:
+    f.write(readme_content)
+" > generate.py
           python generate.py
 
       - name: 📦 Commit & Push if README_2.md Changed
