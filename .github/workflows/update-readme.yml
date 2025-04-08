@@ -1,43 +1,51 @@
-name: 🔁 Auto Update GitHub README
+name: 🛠️ Update GitHub README
 
 on:
   schedule:
-    - cron: "0 0 1 * *"  # Runs on the 1st day of each month at midnight
-  workflow_dispatch:
+    - cron: '0 0 * * *'  # Runs every day at midnight
+  workflow_dispatch:     # Manual trigger
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Repo
-        uses: actions/checkout@v3
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v3
 
-      - name: 🛠️ Update README
-        run: |
-          STATS_URL='![Anil'\''s GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)
-          ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)'
+    - name: 🛠️ Update README Stats, Graph, Projects, Followers
+      run: |
+        # STATS
+        sed -i '/<!-- STATS START -->/,/<!-- STATS END -->/c\
+        <!-- STATS START -->\
+        ![Anil'\''s GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)\
+        ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)\
+        <!-- STATS END -->' README.md
 
-          GRAPH_URL='![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)'
+        # CONTRIBUTION GRAPH
+        sed -i '/<!-- GRAPH START -->/,/<!-- GRAPH END -->/c\
+        <!-- GRAPH START -->\
+        ![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)\
+        <!-- GRAPH END -->' README.md
 
-          perl -0777 -i -pe "s/<!-- STATS START -->.*?<!-- STATS END -->/<!-- STATS START -->\n$STATS_URL\n<!-- STATS END -->/s" README.md
-          perl -0777 -i -pe "s/<!-- GRAPH START -->.*?<!-- GRAPH END -->/<!-- GRAPH START -->\n$GRAPH_URL\n<!-- GRAPH END -->/s" README.md
+        # PROJECTS
+        PROJECTS=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100" | jq -r '.[] | "🔹 [\(.name)](\(.html_url)) - \(.description // \"No description.\")"')
+        sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\
+        <!-- PROJECTS START -->\
+        '"$PROJECTS"'\
+        <!-- PROJECTS END -->' README.md
 
-          PROJECTS=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100" | jq -r '.[] | "🔹 [\(.name)](\(.html_url)) - \(.description // \"No description.\")"')
-          echo "<!-- PROJECTS START -->" > temp_projects.txt
-          echo "$PROJECTS" >> temp_projects.txt
-          echo "<!-- PROJECTS END -->" >> temp_projects.txt
-          perl -0777 -i -pe "s/<!-- PROJECTS START -->.*?<!-- PROJECTS END -->/`cat temp_projects.txt | sed 's/\\/\\\\/g; s/\//\\\//g'`/s" README.md
-          rm temp_projects.txt
+        # FOLLOWERS
+        FOLLOWERS=$(curl -s "https://api.github.com/users/anilss147/followers?per_page=10" | jq -r '.[] | "- [\(.login)](\(.html_url))"')
+        sed -i '/<!-- FOLLOWERS START -->/,/<!-- FOLLOWERS END -->/c\
+        <!-- FOLLOWERS START -->\
+        '"$FOLLOWERS"'\
+        <!-- FOLLOWERS END -->' README.md
 
-          FOLLOWERS=$(curl -s "https://api.github.com/users/anilss147/followers?per_page=10" | jq -r '.[] | "- [\(.login)](\(.html_url))"')
-          FOLLOWERS_BLOCK="<!-- FOLLOWERS START -->\n$FOLLOWERS\n<!-- FOLLOWERS END -->"
-          perl -0777 -i -pe "s/<!-- FOLLOWERS START -->.*?<!-- FOLLOWERS END -->/$FOLLOWERS_BLOCK/s" README.md
-
-      - name: 📤 Commit & Push Changes
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add README.md
-          git commit -m "📈 auto: updated GitHub stats, projects, followers" || echo "No changes to commit"
-          git push
+    - name: ✅ Commit Changes
+      run: |
+        git config --global user.name "anilss147"
+        git config --global user.email "anil@example.com"
+        git add README.md
+        git commit -m "🔄 Auto-updated README with stats, projects, and followers" || echo "No changes to commit"
+        git push
