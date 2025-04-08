@@ -27,8 +27,8 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 ## 🔥 GitHub Stats  
 <!-- STATS START -->
-![Anil's GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)  
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)  
+![Anil's GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)
 <!-- STATS END -->
 
 ---
@@ -47,17 +47,14 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 ## 📊 Contribution Graph  
 <!-- GRAPH START -->
-![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)  
+![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)
 <!-- GRAPH END -->
 
 ---
 
 ## 🚀 Featured Projects  
 <!-- PROJECTS START -->
-🔹 [🌟 AI Chatbot UI](https://github.com/anilss147/ai-chatbot-ui) - AI-powered chatbot UI with advanced features.  
-🔹 [🚀 Automation Scripts](https://github.com/anilss147/automation-scripts) - Useful scripts for automation.  
-🔹 [🔍 AI Image Processing](https://github.com/anilss147/ai-image-processing) - Advanced image processing using AI.  
-🔹 [🎤 AI Voice Assistant](https://github.com/anilss147/ai-voice-assistant) - AI-powered voice assistant.  
+
 <!-- PROJECTS END -->
 
 ---
@@ -89,6 +86,7 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 ## 👥 GitHub Followers & Stars  
 
 <!-- FOLLOWERS START -->
+
 <!-- FOLLOWERS END -->
 
 ![GitHub Followers](https://img.shields.io/github/followers/anilss147?style=social)  
