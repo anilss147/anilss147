@@ -68,10 +68,17 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 ---
 
 
-## 🚀 Future Projects
-<!-- PROJECTS START -->
 
-<!-- PROJECTS END -->
+## 🚀 Future Projects
+
+### 🧠 Advanced AI Projects (Developing Soon)
+
+- 🤖 **AI Voice Assistant for Phone Calls** – Powered by Whisper, WebRTC, and LLMs.
+- 🧪 **AI Testing Framework for Automation QA** – Self-healing test cases, reporting.
+- 🛠️ **AI DevOps Co-Pilot** – Automates CI/CD pipelines with LLMs.
+- 🌐 **Multi-language AI Translator Bot** – Real-time translation + sentiment.
+- 🔍 **AI Code Reviewer with GPT-4 Style Reasoning** – PR auto-comments.
+
 
 ---
 
