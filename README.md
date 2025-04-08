@@ -123,7 +123,7 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 🔹 [Multilingual Voice Assistant Free Tools](https://docs.google.com/document/d/e/2PACX-1vRpoH_RfAvCeCbiUJM4lcxkBXFQFeq2hJJKuteZhtQJ_nJOk4WezDbauJc39Q2c7B7EqPPtws4g6G7V/pub)  
 🔹 [Navigating the Realm of Free Multilingual Voice Assistant Tools: A Comprehensive Guide](https://docs.google.com/document/d/e/2PACX-1vSFHrLjr0s2Od8nxXIYiMrP-QteEPBN84C6z-7441UTcKxonmPvRr_MijOYQSl0qG7W4Sm82Z3NuLSr/pub)  
 🔹 [How to Build a Chatbot Using Python & AI](https://docs.google.com/document/d/e/2PACX-1vS5ce4498lMDBvdXp-Cttlk-WYboQF6QXlC4Ub9u91yEP5bp_jJ6Y0MG_LRvW8Bnt0USfNNgGXua5pU/pub)  
-🔹 [Deploying FastAPI on Cloud for Free](https://anilsherikar.dev/blog/fastapi-deployment)  
+🔹 [Deploying FastAPI Applications on the Cloud for Free](https://docs.google.com/document/d/e/2PACX-1vSDv90YrSBBOVyK42VpJquGCtnOo2HrVsuMke4UqLOI_uVTjinVLdEJ0-JT4Y58kfmAUgfZfMC6H34m/pub)  
 
 ---
 
