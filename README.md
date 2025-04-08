@@ -61,6 +61,13 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 ---
 
+## 🚀 Dynamic Projects  
+<!-- PROJECTS START -->
+<!-- PROJECTS END -->
+
+---
+
+
 ## 🚀 Featured Projects  
 <!-- PROJECTS START -->
 
