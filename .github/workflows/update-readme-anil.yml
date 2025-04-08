@@ -1,9 +1,9 @@
-name: 🚀 Auto-Update README_2.md Monthly
+name: 📄 Update README_2.md Monthly
 
 on:
   schedule:
-    - cron: "0 0 1 * *"  # Runs on the 1st of every month
-  workflow_dispatch:  # Allows manual trigger from GitHub UI
+    - cron: "0 0 1 * *"  # every 1st of month
+  workflow_dispatch:
 
 jobs:
   update-readme:
@@ -13,63 +13,53 @@ jobs:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v3
 
-      - name: 🐍 Set up Python
+      - name: 🐍 Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
-      - name: 🧠 Install PyGithub
+      - name: 📦 Install Dependencies
         run: pip install PyGithub
 
-      - name: 📝 Create README_2.md with Project List
+      - name: 📝 Create update_readme.py file
         run: |
-          echo "from github import Github
+          echo "from github import Github" > update_readme.py
+          echo "" >> update_readme.py
+          echo "USERNAME = 'anilss147'" >> update_readme.py
+          echo "g = Github()" >> update_readme.py
+          echo "user = g.get_user(USERNAME)" >> update_readme.py
+          echo "repos = user.get_repos()" >> update_readme.py
+          echo "" >> update_readme.py
+          echo "project_lines = []" >> update_readme.py
+          echo "for i, repo in enumerate(sorted(repos, key=lambda r: r.created_at, reverse=True), start=1):" >> update_readme.py
+          echo "    line = f\"{i}. [{repo.name}]({repo.html_url}) - {repo.description or 'No description.'}\"" >> update_readme.py
+          echo "    project_lines.append(line)" >> update_readme.py
+          echo "" >> update_readme.py
+          echo "project_section = '\\n'.join(project_lines[:30])" >> update_readme.py
+          echo "" >> update_readme.py
+          echo "readme_content = f'''# 🚀 Auto-Generated README_2.md" >> update_readme.py
+          echo "" >> update_readme.py
+          echo "## 🚀 Dynamic Projects" >> update_readme.py
+          echo "" >> update_readme.py
+          echo "{project_section}" >> update_readme.py
+          echo "" >> update_readme.py
+          echo "❤️ Auto-updated with love by GitHub Actions ❤️" >> update_readme.py
+          echo "'''" >> update_readme.py
+          echo "" >> update_readme.py
+          echo "with open('README_2.md', 'w', encoding='utf-8') as f:" >> update_readme.py
+          echo "    f.write(readme_content)" >> update_readme.py
 
-USERNAME = 'anilss147'
-g = Github()
-user = g.get_user(USERNAME)
-repos = user.get_repos()
-
-project_lines = []
-for i, repo in enumerate(sorted(repos, key=lambda r: r.created_at, reverse=True), start=1):
-    line = f'{i}. [{repo.name}]({repo.html_url}) - {repo.description or \"No description.\"}'
-    project_lines.append(line)
-
-project_section = '\\n'.join(project_lines[:30])
-
-readme_content = f'''
-![Profile Banner](https://raw.githubusercontent.com/anilss147/anilss147/main/github-header-image.png)
-
-# 👋 Hi, I'm Anil Sherikar!
-
-🚀 Passionate Developer | AI Enthusiast | Automation Expert
-
-...
-
-## 🚀 Dynamic Projects
-
-{project_section}
-
-...
-
-🚀 **Let's build something amazing together!** 💡
-'''
-
-with open('README_2.md', 'w', encoding='utf-8') as f:
-    f.write(readme_content)
-" > update_readme.py
-
-      - name: ▶️ Run Script
+      - name: ▶️ Run Python Script
         run: python update_readme.py
 
-      - name: ✅ Commit & Push if Changed
+      - name: 📤 Commit & Push Changes
         run: |
           git config --global user.name "anilss147"
           git config --global user.email "anil@example.com"
 
           if [[ `git status --porcelain README_2.md` ]]; then
             git add README_2.md
-            git commit -m "📦 Auto-update README_2.md"
+            git commit -m "🔁 Auto-update README_2.md"
             git push
           else
             echo "✅ No changes to commit."
