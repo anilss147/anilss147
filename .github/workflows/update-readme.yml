@@ -14,27 +14,31 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Install jq
+      # Step 2: Install jq (for parsing JSON)
       - name: Install Dependencies
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      # Step 3: Fetch and Update Stats, Projects, Followers, Graph
+      # Step 3: Fetch and Update Stats, Projects, Graph, Followers
       - name: Fetch and Update README
         run: |
-          # Fetch GitHub Stats
-          STATS_URL="![GitHub Stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=radical)"
+          # GitHub Stats Section
+          STATS_URL="![Anil's GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)\n![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)"
           sed -i '/<!-- STATS START -->/,/<!-- STATS END -->/c\<!-- STATS START -->\n'"$STATS_URL"'\n<!-- STATS END -->' README.md
 
-          # Fetch Featured Projects
-          PROJECTS=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100" | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"')
-          sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\<!-- PROJECTS START -->\n'"$PROJECTS"'\n<!-- PROJECTS END -->' README.md
-
-          # Fetch GitHub Contribution Graph
-          GRAPH_URL="![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=anilss147&theme=github)"
+          # Contribution Graph Section
+          GRAPH_URL="![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)"
           sed -i '/<!-- GRAPH START -->/,/<!-- GRAPH END -->/c\<!-- GRAPH START -->\n'"$GRAPH_URL"'\n<!-- GRAPH END -->' README.md
 
-          # Fetch Followers
-          FOLLOWERS=$(curl -s "https://api.github.com/users/anilss147/followers?per_page=10" | jq -r '.[] | "- [\(.login)](\(.html_url))"')
+          # Featured Projects Section
+          PROJECTS=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100" \
+            | jq -r '.[] | "🔹 [\(.name)](\(.html_url)) - \(.description // \"No description.\")"' \
+            | sed ':a;N;$!ba;s/\n/\\n/g')
+          sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\<!-- PROJECTS START -->\n'"$PROJECTS"'\n<!-- PROJECTS END -->' README.md
+
+          # Followers Section (Add <!-- FOLLOWERS START --> & <!-- FOLLOWERS END --> in your README)
+          FOLLOWERS=$(curl -s "https://api.github.com/users/anilss147/followers?per_page=10" \
+            | jq -r '.[] | "- [\(.login)](\(.html_url))"' \
+            | sed ':a;N;$!ba;s/\n/\\n/g')
           sed -i '/<!-- FOLLOWERS START -->/,/<!-- FOLLOWERS END -->/c\<!-- FOLLOWERS START -->\n'"$FOLLOWERS"'\n<!-- FOLLOWERS END -->' README.md
 
       # Step 4: Commit and Push Changes
