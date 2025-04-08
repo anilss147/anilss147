@@ -121,6 +121,7 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 🔹 [AI in Automation – The Future of DevOps](https://medium.com/@anilieee207/ai-in-automation-the-future-of-devops-b125997d14ec)  
 🔹 [Multilingual Voice Assistant Free Tools](https://docs.google.com/document/d/e/2PACX-1vRpoH_RfAvCeCbiUJM4lcxkBXFQFeq2hJJKuteZhtQJ_nJOk4WezDbauJc39Q2c7B7EqPPtws4g6G7V/pub)  
+🔹 [Navigating the Realm of Free Multilingual Voice Assistant Tools: A Comprehensive Guide](https://docs.google.com/document/d/e/2PACX-1vSFHrLjr0s2Od8nxXIYiMrP-QteEPBN84C6z-7441UTcKxonmPvRr_MijOYQSl0qG7W4Sm82Z3NuLSr/pub)  
 🔹 [How to Build a Chatbot Using Python & AI](https://dev.to/anilsherikar)  
 🔹 [Deploying FastAPI on Cloud for Free](https://anilsherikar.dev/blog/fastapi-deployment)  
 
