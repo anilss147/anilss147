@@ -16,7 +16,7 @@ jobs:
       - name: Install Dependencies
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Fetch and Update README2
+      - name: Fetch and Update README
         run: |
           STATS_URL="![Anil's GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)\n![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)"
           sed -i '/<!-- STATS START -->/,/<!-- STATS END -->/c\<!-- STATS START -->\n'"$STATS_URL"'\n<!-- STATS END -->' README.md
@@ -25,9 +25,17 @@ jobs:
           sed -i '/<!-- GRAPH START -->/,/<!-- GRAPH END -->/c\<!-- GRAPH START -->\n'"$GRAPH_URL"'\n<!-- GRAPH END -->' README.md
 
           PROJECTS=$(curl -s "https://api.github.com/users/anilss147/repos?per_page=100" \
-            | jq -r '.[] | "🔹 [\(.name)](\(.html_url)) - \(.description // \"No description.\")"' \
-            | sed ':a;N;$!ba;s/\n/\\n/g')
-          sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\<!-- PROJECTS START -->\n'"$PROJECTS"'\n<!-- PROJECTS END -->' README.md
+            | jq -r '.[] | "🔹 [\(.name)](\(.html_url)) - \(.description // \"No description.\")"')
+
+          awk -v content="$PROJECTS" '
+            BEGIN { print "<!-- PROJECTS START -->" }
+            { print content }
+            END { print "<!-- PROJECTS END -->" }
+          ' > temp_projects.txt
+
+          sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/r temp_projects.txt' README.md
+          sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/d' README.md
+          rm temp_projects.txt
 
           FOLLOWERS=$(curl -s "https://api.github.com/users/anilss147/followers?per_page=10" \
             | jq -r '.[] | "- [\(.login)](\(.html_url))"' \
