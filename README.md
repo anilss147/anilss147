@@ -88,8 +88,12 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 
 ## 👥 GitHub Followers & Stars  
 
+<!-- FOLLOWERS START -->
+<!-- FOLLOWERS END -->
+
 ![GitHub Followers](https://img.shields.io/github/followers/anilss147?style=social)  
 ![GitHub Stars](https://img.shields.io/github/stars/anilss147?style=social)  
+
 
 ---
 
