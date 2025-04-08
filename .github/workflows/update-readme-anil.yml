@@ -2,7 +2,7 @@ name: 📄 Update README_2.md Monthly
 
 on:
   schedule:
-    - cron: "0 0 1 * *"  # every 1st of month
+    - cron: "0 0 1 * *"  # every 1st of the month
   workflow_dispatch:
 
 jobs:
@@ -18,44 +18,32 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: 📦 Install Dependencies
+      - name: 📦 Install PyGithub
         run: pip install PyGithub
 
-      - name: 📝 Create update_readme.py file
+      - name: 📝 Create Python Script Dynamically
         run: |
           echo "from github import Github" > update_readme.py
-          echo "" >> update_readme.py
           echo "USERNAME = 'anilss147'" >> update_readme.py
           echo "g = Github()" >> update_readme.py
           echo "user = g.get_user(USERNAME)" >> update_readme.py
           echo "repos = user.get_repos()" >> update_readme.py
-          echo "" >> update_readme.py
           echo "project_lines = []" >> update_readme.py
           echo "for i, repo in enumerate(sorted(repos, key=lambda r: r.created_at, reverse=True), start=1):" >> update_readme.py
-          echo "    line = f\"{i}. [{repo.name}]({repo.html_url}) - {repo.description or 'No description.'}\"" >> update_readme.py
+          echo "    line = f'{i}. [{repo.name}]({repo.html_url}) - {repo.description or \"No description.\"}'" >> update_readme.py
           echo "    project_lines.append(line)" >> update_readme.py
-          echo "" >> update_readme.py
           echo "project_section = '\\n'.join(project_lines[:30])" >> update_readme.py
-          echo "" >> update_readme.py
-          echo "readme_content = f'''# 🚀 Auto-Generated README_2.md" >> update_readme.py
-          echo "" >> update_readme.py
-          echo "## 🚀 Dynamic Projects" >> update_readme.py
-          echo "" >> update_readme.py
-          echo "{project_section}" >> update_readme.py
-          echo "" >> update_readme.py
-          echo "❤️ Auto-updated with love by GitHub Actions ❤️" >> update_readme.py
-          echo "'''" >> update_readme.py
-          echo "" >> update_readme.py
+          echo "readme_content = f'''# 🚀 Auto-Generated README_2.md\n\n## 🔢 Top 30 Projects:\n\n{project_section}\n\n❤️ Auto-updated with GitHub Actions ❤️'''" >> update_readme.py
           echo "with open('README_2.md', 'w', encoding='utf-8') as f:" >> update_readme.py
           echo "    f.write(readme_content)" >> update_readme.py
 
-      - name: ▶️ Run Python Script
+      - name: ▶️ Run the Script
         run: python update_readme.py
 
-      - name: 📤 Commit & Push Changes
+      - name: 📤 Commit and Push if Changed
         run: |
           git config --global user.name "anilss147"
-          git config --global user.email "anil@example.com"
+          git config --global user.email "your_email@example.com"
 
           if [[ `git status --porcelain README_2.md` ]]; then
             git add README_2.md
