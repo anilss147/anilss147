@@ -1,0 +1,54 @@
+name: Auto Update Custom GitHub Profile
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"  # ⏰ Runs 1st of every month
+  workflow_dispatch:
+
+jobs:
+  update-custom-profile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Update CUSTOM_PROFILE.md
+        run: |
+          # GitHub Stats
+          STATS="![Stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)"
+          sed -i '/<!-- STATS START -->/,/<!-- STATS END -->/c\<!-- STATS START -->\n'"$STATS"'\n<!-- STATS END -->' CUSTOM_PROFILE.md
+
+          # Streak
+          STREAK="![Streak](https://github-readme-streak-stats.demolab.com/?user=anilss147&theme=tokyonight)"
+          sed -i '/<!-- STREAK START -->/,/<!-- STREAK END -->/c\<!-- STREAK START -->\n'"$STREAK"'\n<!-- STREAK END -->' CUSTOM_PROFILE.md
+
+          # Contribution Graph
+          GRAPH="![Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)"
+          sed -i '/<!-- GRAPH START -->/,/<!-- GRAPH END -->/c\<!-- GRAPH START -->\n'"$GRAPH"'\n<!-- GRAPH END -->' CUSTOM_PROFILE.md
+
+          # Projects
+          PROJECTS=$(curl -s https://api.github.com/users/anilss147/repos?per_page=100 \
+            | jq -r '.[] | "- [\(.name)](\(.html_url)) - \(.description // "No description.")"' \
+            | sed ':a;N;$!ba;s/\n/\\n/g')
+          sed -i '/<!-- PROJECTS START -->/,/<!-- PROJECTS END -->/c\<!-- PROJECTS START -->\n'"$PROJECTS"'\n<!-- PROJECTS END -->' CUSTOM_PROFILE.md
+
+          # Followers
+          FOLLOWERS=$(curl -s https://api.github.com/users/anilss147/followers?per_page=10 \
+            | jq -r '.[] | "- [\(.login)](\(.html_url))"' \
+            | sed ':a;N;$!ba;s/\n/\\n/g')
+          sed -i '/<!-- FOLLOWERS START -->/,/<!-- FOLLOWERS END -->/c\<!-- FOLLOWERS START -->\n'"$FOLLOWERS"'\n<!-- FOLLOWERS END -->' CUSTOM_PROFILE.md
+
+      - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add CUSTOM_PROFILE.md
+          git commit -m "🔄 Auto-update custom GitHub profile" || echo "No changes"
+          git pull --rebase origin main
+          git push
