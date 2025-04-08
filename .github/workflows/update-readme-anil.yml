@@ -2,8 +2,8 @@ name: 🚀 Auto-Update README_2.md Monthly
 
 on:
   schedule:
-    - cron: "0 0 1 * *"  # Every 1st of the month
-  workflow_dispatch:
+    - cron: "0 0 1 * *"  # Runs on the 1st of every month
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
 
 jobs:
   update-readme:
@@ -21,10 +21,9 @@ jobs:
       - name: 🧠 Install PyGithub
         run: pip install PyGithub
 
-      - name: 📝 Generate README_2.md
+      - name: 📝 Create README_2.md with Project List
         run: |
           echo "from github import Github
-import os
 
 USERNAME = 'anilss147'
 g = Github()
@@ -38,37 +37,39 @@ for i, repo in enumerate(sorted(repos, key=lambda r: r.created_at, reverse=True)
 
 project_section = '\\n'.join(project_lines[:30])
 
-readme_content = f\"\"\"# 🚀 Auto-Generated README_2.md
+readme_content = f'''
+![Profile Banner](https://raw.githubusercontent.com/anilss147/anilss147/main/github-header-image.png)
 
-## 👋 Hello, I'm Anil Sherikar!
+# 👋 Hi, I'm Anil Sherikar!
 
-🚀 Developer | AI Enthusiast | Automation Expert
+🚀 Passionate Developer | AI Enthusiast | Automation Expert
 
----
+...
 
 ## 🚀 Dynamic Projects
 
 {project_section}
 
----
+...
 
-## 📢 Auto-updated on GitHub Actions
-\"\"\"
+🚀 **Let's build something amazing together!** 💡
+'''
 
 with open('README_2.md', 'w', encoding='utf-8') as f:
     f.write(readme_content)
-" > generate.py
-          python generate.py
+" > update_readme.py
 
-      - name: 📦 Commit & Push if README_2.md Changed
+      - name: ▶️ Run Script
+        run: python update_readme.py
+
+      - name: ✅ Commit & Push if Changed
         run: |
           git config --global user.name "anilss147"
           git config --global user.email "anil@example.com"
 
           if [[ `git status --porcelain README_2.md` ]]; then
             git add README_2.md
-            git commit -m "📦 Auto-update README_2.md with latest projects"
+            git commit -m "📦 Auto-update README_2.md"
             git push
           else
-            echo "✅ README_2.md is already up to date. No changes to commit."
-          fi
+            echo "✅ No changes to commit."
