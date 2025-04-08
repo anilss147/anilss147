@@ -26,44 +26,53 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 ---
 
 ## 🔥 GitHub Stats  
+<!-- STATS START -->
 ![Anil's GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)  
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)  
+<!-- STATS END -->
 
 ---
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=anilss147&theme=github-dark-blue)
+<!-- STREAK START -->
+![GitHub Streak](https://github-readme-streak-stats.demolab.com/?user=anilss147&theme=tokyonight)
+<!-- STREAK END -->
 
 ---
 
+<!-- LANG SUMMARY START -->
 ![GitHub Languages](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=anilss147&theme=github)
-
+<!-- LANG SUMMARY END -->
 
 ---
 
 ## 📊 Contribution Graph  
+<!-- GRAPH START -->
 ![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)  
+<!-- GRAPH END -->
 
 ---
 
 ## 🚀 Featured Projects  
+<!-- PROJECTS START -->
 🔹 [🌟 AI Chatbot UI](https://github.com/anilss147/ai-chatbot-ui) - AI-powered chatbot UI with advanced features.  
 🔹 [🚀 Automation Scripts](https://github.com/anilss147/automation-scripts) - Useful scripts for automation.  
 🔹 [🔍 AI Image Processing](https://github.com/anilss147/ai-image-processing) - Advanced image processing using AI.  
 🔹 [🎤 AI Voice Assistant](https://github.com/anilss147/ai-voice-assistant) - AI-powered voice assistant.  
+<!-- PROJECTS END -->
 
 ---
 
 ## 📜 Certifications & Achievements  
 
-🏆 **AI & Deep Learning** –– –will update soon  
-📜 **Cloud Computing** –– –will update soon  
-🎖️ **Hackathons & Competitions** –– –will update soon  
+🏆 **AI & Deep Learning** –– will update soon  
+📜 **Cloud Computing** –– will update soon  
+🎖️ **Hackathons & Competitions** –– will update soon  
 
 ---
 
 ## 📖 My Blogs & Articles  
 
-🔹 [AI in Automation – The Future of DevOps](https://medium.com/@anilieee207/ai-in-automation-the-future-of-devops-b125997d14ec)
+🔹 [AI in Automation – The Future of DevOps](https://medium.com/@anilieee207/ai-in-automation-the-future-of-devops-b125997d14ec)  
 🔹 [How to Build a Chatbot Using Python & AI](https://dev.to/anilsherikar)  
 🔹 [Deploying FastAPI on Cloud for Free](https://anilsherikar.dev/blog/fastapi-deployment)  
 
@@ -78,6 +87,7 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 ---
 
 ## 👥 GitHub Followers & Stars  
+
 ![GitHub Followers](https://img.shields.io/github/followers/anilss147?style=social)  
 ![GitHub Stars](https://img.shields.io/github/stars/anilss147?style=social)  
 
@@ -116,7 +126,6 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 [![Personal Website](https://img.shields.io/badge/-Website-000000?style=flat&logo=github&logoColor=white)](https://anilsherikar.dev/)  
 
 ---
-
 
 ## ❤️ Support My Work  
 
