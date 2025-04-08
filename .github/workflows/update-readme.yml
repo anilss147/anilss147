@@ -16,7 +16,7 @@ jobs:
       - name: 🛠️ Update README
         run: |
           STATS_URL='![Anil'\''s GitHub stats](https://github-readme-stats.vercel.app/api?username=anilss147&show_icons=true&theme=tokyonight)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)'
+          ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anilss147&layout=compact&theme=tokyonight)'
 
           GRAPH_URL='![GitHub Contribution Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anilss147&theme=github)'
 
