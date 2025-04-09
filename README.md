@@ -125,6 +125,8 @@ My mission is to use AI & automation to solve real-world problems and **help dev
 🔹 [Navigating the Realm of Free Multilingual Voice Assistant Tools: A Comprehensive Guide](https://docs.google.com/document/d/e/2PACX-1vSFHrLjr0s2Od8nxXIYiMrP-QteEPBN84C6z-7441UTcKxonmPvRr_MijOYQSl0qG7W4Sm82Z3NuLSr/pub)  
 🔹 [How to Build a Chatbot Using Python & AI](https://docs.google.com/document/d/e/2PACX-1vS5ce4498lMDBvdXp-Cttlk-WYboQF6QXlC4Ub9u91yEP5bp_jJ6Y0MG_LRvW8Bnt0USfNNgGXua5pU/pub)  
 🔹 [Deploying FastAPI Applications on the Cloud for Free](https://docs.google.com/document/d/e/2PACX-1vSDv90YrSBBOVyK42VpJquGCtnOo2HrVsuMke4UqLOI_uVTjinVLdEJ0-JT4Y58kfmAUgfZfMC6H34m/pub)  
+🔹 [Understanding the Architecture of the Atlist AI Application](https://docs.google.com/document/d/e/2PACX-1vRJ8f_e9kwOYPLuxZ2mID0RnJZMEyNPeWv86AXxnBNC7uFVCDs-8187UVUzl92TvUbR5ZfqM1ena6co/pub)  
+
 
 ---
 
